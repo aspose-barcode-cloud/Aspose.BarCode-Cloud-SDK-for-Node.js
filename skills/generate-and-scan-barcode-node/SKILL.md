@@ -1,9 +1,9 @@
 ---
-name: aspose-barcode-cloud-node
+name: generate-and-scan-barcode-node
 description: Write or update Node.js or TypeScript code that uses the Aspose.BarCode Cloud SDK (`aspose-barcode-cloud-node`) to generate, recognize, or scan barcodes through Aspose's cloud REST API. Use this skill whenever the user wants barcode work in Node.js, touches files under `submodules/node`, or mentions `GenerateApi`, `RecognizeApi`, `ScanApi`, `Configuration`, `GenerateParams`, `GenerateRequestWrapper`, `RecognizeBase64Request`, `ScanBase64Request`, or any of the `...RequestWrapper` types. The Node SDK has several easy-to-miss idioms, including constructing `Configuration(clientId, clientSecret, baseUrl?, accessToken?, tokenUrl?)`, wrapping every operation in a request-wrapper object, reading generate results from `result.body` as a `Buffer`, using public `fileUrl` values for GET recognize and scan methods, base64-encoding body payloads yourself, and handling rejected objects that often include `response`, `error`, and `errorResponse`.
 ---
 
-# Aspose.BarCode Cloud SDK for Node.js
+# Generate and scan barcode in Node.js
 
 The Node SDK is a thin generated client over the Aspose BarCode Cloud REST API. Most tasks come down to choosing the right API class (`GenerateApi`, `RecognizeApi`, or `ScanApi`), choosing the right transport shape (GET, base64 body, or multipart), and wiring `Configuration` correctly.
 

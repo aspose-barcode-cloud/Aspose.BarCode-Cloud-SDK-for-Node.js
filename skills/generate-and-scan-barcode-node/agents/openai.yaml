@@ -1,0 +1,4 @@
+interface:
+  display_name: "Generate and scan barcode in Node.js"
+  short_description: "Use Aspose.BarCode Cloud from Node.js"
+  default_prompt: "Use $generate-and-scan-barcode-node to write or update Node.js code that generates, recognizes, or scans barcodes with Aspose.BarCode Cloud."

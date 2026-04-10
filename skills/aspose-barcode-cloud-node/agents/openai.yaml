@@ -1,4 +1,0 @@
-interface:
-  display_name: "Aspose.BarCode Cloud Node.js"
-  short_description: "Write Node barcode code with Aspose Cloud"
-  default_prompt: "Use $aspose-barcode-cloud-node to write or update Node.js code that generates, recognizes, or scans barcodes with Aspose.BarCode Cloud."
