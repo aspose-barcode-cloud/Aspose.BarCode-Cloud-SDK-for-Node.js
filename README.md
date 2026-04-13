@@ -34,6 +34,10 @@ To use these SDKs, you will need Client Id and Client Secret which can be looked
 
 The complete source code is available in this repository folder. You can either directly use it in your project via source code or get [nmpjs distribution](https://www.npmjs.com/package/aspose-barcode-cloud-node) (recommended).
 
+## AI Agent Skills
+
+This repository includes an AI-agent skill in [`skills/generate-and-scan-barcode-node/SKILL.md`](skills/generate-and-scan-barcode-node/SKILL.md). Point your coding agent to it when working with this SDK so it follows the repo workflow and SDK-specific API patterns.
+
 ### Install Aspose.BarCode for Cloud via NPM
 
 From the command line:
@@ -130,4 +134,3 @@ RecognizeApi | [**recognizeMultipart**](docs/index.md#recognizemultipart) | **PO
 ScanApi | [**scan**](docs/index.md#scan) | **GET** /barcode/scan | Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use &#x60;scan-body&#x60; or &#x60;scan-multipart&#x60; endpoints instead.
 ScanApi | [**scanBase64**](docs/index.md#scanbase64) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
 ScanApi | [**scanMultipart**](docs/index.md#scanmultipart) | **POST** /barcode/scan-multipart | Scan barcode from file in request body using POST requests with parameter in multipart form.
-
