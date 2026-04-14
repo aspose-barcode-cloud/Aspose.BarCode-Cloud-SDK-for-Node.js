@@ -160,8 +160,13 @@
     "tabWidth": 4
   },
   "tsup": {
-    "entry": ["src/index.ts"],
-    "format": ["cjs", "esm"],
+    "entry": [
+      "src/index.ts"
+    ],
+    "format": [
+      "cjs",
+      "esm"
+    ],
     "dts": true,
     "splitting": false,
     "sourcemap": false,
@@ -170,6 +175,7 @@
   },
   "devDependencies": {
     "@types/jest": "^30.0.0",
+    "@types/node": "^25.6.0",
     "@typescript-eslint/eslint-plugin": "^8.40.0",
     "@typescript-eslint/parser": "^8.40.0",
     "eslint": "^9.33.0",

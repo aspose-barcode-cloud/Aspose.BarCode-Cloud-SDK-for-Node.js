@@ -1,20 +1,18 @@
 {
   "include": ["src"],
   "compilerOptions": {
-    "module": "ES2015",
-    "target": "es6",
-    "lib": ["es6"],
+    "module": "ES2020",
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM"],
+    "types": ["node", "jest"],
     "importHelpers": true,
     "declaration": true,
     "sourceMap": false,
     "rootDir": "./src",
     "strict": true,
-    "moduleResolution": "node",
-    "baseUrl": "./",
-    "paths": {
-      "*": ["src/*", "node_modules/*"]
-    },
+    "moduleResolution": "bundler",
     "esModuleInterop": true,
+    "ignoreDeprecations": "6.0",
     "outDir": "./built/"
   }
 }
