@@ -5,7 +5,7 @@
 [![npm](https://img.shields.io/npm/v/aspose-barcode-cloud-node)](https://www.npmjs.com/package/aspose-barcode-cloud-node)
 
 + API version: 4.0
-+ Package version: 26.3.2
++ Package version: 26.4.0
 
 ## SDK and API Version Compatibility:
 
