@@ -134,3 +134,4 @@ RecognizeApi | [**recognizeMultipart**](docs/index.md#recognizemultipart) | **PO
 ScanApi | [**scan**](docs/index.md#scan) | **GET** /barcode/scan | Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use &#x60;scan-body&#x60; or &#x60;scan-multipart&#x60; endpoints instead.
 ScanApi | [**scanBase64**](docs/index.md#scanbase64) | **POST** /barcode/scan-body | Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
 ScanApi | [**scanMultipart**](docs/index.md#scanmultipart) | **POST** /barcode/scan-multipart | Scan barcode from file in request body using POST requests with parameter in multipart form.
+

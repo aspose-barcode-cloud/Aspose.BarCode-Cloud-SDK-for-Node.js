@@ -8,6 +8,7 @@ trim_trailing_spaces () {
 }
 
 trim_trailing_spaces "README.md"
+sed -i -e '${/^$/d;}' "README.md"
 
 for filename in ./docs/*.md; do
   trim_trailing_spaces "$filename"
