@@ -20,7 +20,7 @@ def main(template: typing.TextIO) -> None:
         return read_text(file_name)
 
     text = REPLACE_RE.sub(sub_match, content)
-    print(text)
+    print(text, end="")
 
 
 def parse_args() -> typing.Dict[str, typing.Any]:
