@@ -78,5 +78,9 @@ snippets:
 insert-example:
 	./scripts/insert-example.bash
 
+.PHONY: format-doc
+format-doc:
+	sed -i -e '$${/^$$/d;}' "README.md"
+
 .PHONY: after-gen
-after-gen: format lock insert-example
+after-gen: format lock insert-example format-doc
