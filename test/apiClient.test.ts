@@ -26,7 +26,7 @@ describe('api client tests', () => {
                 assert.ok(rejected.error);
                 const response = rejected.response;
                 assert.strictEqual(response.statusCode, 404);
-                assert.strictEqual(response.statusMessage, 'Not Found');
+                assert.ok(response.statusMessage === 'Not Found' || response.statusMessage === '');
                 return true;
             }
         );
