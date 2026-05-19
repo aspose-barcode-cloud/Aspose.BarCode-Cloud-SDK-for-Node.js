@@ -14,10 +14,6 @@ format:
 	./scripts/docs_format.sh
 	npm run format
 
-.PHONY: lock
-lock:
-	npm install --package-lock-only --lockfile-version 2
-
 .PHONY: clean
 clean:
 	-rm -rf built dist node_modules coverage
@@ -83,4 +79,5 @@ format-doc:
 	sed -i -e '$${/^$$/d;}' "README.md"
 
 .PHONY: after-gen
-after-gen: format lock insert-example format-doc
+after-gen: format insert-example format-doc
+	npm update --lockfile-version 2
