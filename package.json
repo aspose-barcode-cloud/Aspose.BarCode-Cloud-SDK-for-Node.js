@@ -184,8 +184,7 @@
     "prettier": "^3.8.3",
     "ts-jest": "^29.4.9",
     "tslib": "^2.8.1",
-    "tsup": "^8.5.1",
-    "uuid": "^14.0.0"
+    "tsup": "^8.5.1"
   },
   "bugs": {
     "url": "https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/issues"
