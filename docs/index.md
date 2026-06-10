@@ -4,7 +4,7 @@
 
 ### generate
 
-Generate barcode using GET request with parameters in route and query string.
+Generate a barcode using a GET request with parameters in the route and query string.
 
 ```ts
 generate(barcodeType: EncodeBarcodeType, data: string): Buffer;
@@ -15,17 +15,36 @@ generate(barcodeType: EncodeBarcodeType, data: string): Buffer;
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcodeType** | [**EncodeBarcodeType**](models.md#)| Type of barcode to generate. |
- **data** | **string**| String represents data to encode |
+ **data** | **string**| String that represents the data to encode. |
  **dataType** | [**EncodeDataType**](models.md#)| Type of data to encode. Default value: StringData. | [optional]
- **imageFormat** | [**BarcodeImageFormat**](models.md#)| Barcode output image format. Default value: png | [optional]
- **textLocation** | [**CodeLocation**](models.md#)| Specify the displaying Text Location, set to CodeLocation.None to hide CodeText. Default value: Depends on BarcodeType. CodeLocation.Below for 1D Barcodes. CodeLocation.None for 2D Barcodes. | [optional]
- **foregroundColor** | **string**| Specify the displaying bars and content Color. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #. For example: AliceBlue or #FF000000 Default value: Black. | [optional] [default to '&#39;Black&#39;']
- **backgroundColor** | **string**| Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #. For example: AliceBlue or #FF000000 Default value: White. | [optional] [default to '&#39;White&#39;']
- **units** | [**GraphicsUnit**](models.md#)| Common Units for all measuring in query. Default units: pixel. | [optional]
- **resolution** | **number**| Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is dot. | [optional]
- **imageHeight** | **number**| Height of the barcode image in given units. Default units: pixel. Decimal separator is dot. | [optional]
- **imageWidth** | **number**| Width of the barcode image in given units. Default units: pixel. Decimal separator is dot. | [optional]
- **rotationAngle** | **number**| BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional]
+ **imageFormat** | [**BarcodeImageFormat**](models.md#)| Barcode output image format. Default value: png. | [optional]
+ **textLocation** | [**CodeLocation**](models.md#)| Specify the displayed text location. Set to CodeLocation.None to hide CodeText. Default value depends on BarcodeType: CodeLocation.Below for 1D barcodes and CodeLocation.None for 2D barcodes. | [optional]
+ **foregroundColor** | **string**| Specify the display color for bars and content. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: Black. | [optional] [default to '&#39;Black&#39;']
+ **backgroundColor** | **string**| Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: White. | [optional] [default to '&#39;White&#39;']
+ **units** | [**GraphicsUnit**](models.md#)| Common units for all measurements. Default units: pixels. | [optional]
+ **resolution** | **number**| Resolution of the barcode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is a dot. | [optional]
+ **imageHeight** | **number**| Height of the barcode image in the specified units. Default units: pixels. Decimal separator is a dot. | [optional]
+ **imageWidth** | **number**| Width of the barcode image in the specified units. Default units: pixels. Decimal separator is a dot. | [optional]
+ **rotationAngle** | **number**| Barcode image rotation angle, measured in degrees. For example, RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle is not equal to 90, 180, 270, or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional]
+ **qrEncodeMode** | [**QREncodeMode**](models.md#)| QR barcode encode mode. | [optional]
+ **qrErrorLevel** | [**QRErrorLevel**](models.md#)| QR barcode error correction level. | [optional]
+ **qrVersion** | [**QRVersion**](models.md#)| QR barcode version. Automatically selects the smallest version that fits the data. | [optional]
+ **qrECIEncoding** | [**ECIEncodings**](models.md#)| ECI encoding for QR barcode data. | [optional]
+ **qrAspectRatio** | **number**| QR barcode aspect ratio. Values: 0 to 1. | [optional]
+ **microQRVersion** | [**MicroQRVersion**](models.md#)| MicroQR barcode version. Used when BarcodeType is MicroQR. | [optional]
+ **rectMicroQrVersion** | [**RectMicroQRVersion**](models.md#)| RectMicroQR barcode version. Used when BarcodeType is RectMicroQR. | [optional]
+ **code128EncodeMode** | [**Code128EncodeMode**](models.md#)| Code128 barcode encode mode. Controls which Code 128 subset (A, B, C, or mix) is used. | [optional]
+ **pdf417EncodeMode** | [**Pdf417EncodeMode**](models.md#)| PDF417 barcode encode mode. | [optional]
+ **pdf417ErrorLevel** | [**Pdf417ErrorLevel**](models.md#)| PDF417 barcode error correction level. | [optional]
+ **pdf417Truncate** | **boolean**| Whether to use truncated PDF417 format (removes right-side stop pattern). | [optional]
+ **pdf417Columns** | **number**| Number of columns in the PDF417 barcode. Values between 1 and 30. 0 for auto. | [optional]
+ **pdf417Rows** | **number**| Number of rows in the PDF417 barcode. Values between 3 and 90. 0 for automatic. | [optional]
+ **pdf417AspectRatio** | **number**| PDF417 barcode aspect ratio (height/width of the barcode module). Values are defined by the standard: 2 to 5 for MicroPdf417; 3 to 5 for Pdf417 and MacroPdf417. | [optional]
+ **pdf417ECIEncoding** | [**ECIEncodings**](models.md#)| ECI encoding for PDF417 barcode data. | [optional]
+ **pdf417IsReaderInitialization** | **boolean**| Whether the barcode is used for reader initialization (programming). | [optional]
+ **pdf417MacroCharacters** | [**MacroCharacter**](models.md#)| Macro character to prepend (structured append). | [optional]
+ **pdf417IsLinked** | **boolean**| Whether to use linked mode (for MicroPdf417). | [optional]
+ **pdf417IsCode128Emulation** | **boolean**| Whether to use Code128 emulation for MicroPdf417. | [optional]
 
 #### GenerateApi.generate return type
 
@@ -35,7 +54,7 @@ Buffer
 
 ### generateBody
 
-Generate barcode using POST request with parameters in body in json or xml format.
+Generate a barcode using a POST request with parameters in the request body in JSON or XML format.
 
 ```ts
 generateBody(generateParams: GenerateParams): Buffer;
@@ -45,7 +64,7 @@ generateBody(generateParams: GenerateParams): Buffer;
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **generateParams** | [**GenerateParams**](models.md#GenerateParams)| Parameters of generation |
+ **generateParams** | [**GenerateParams**](models.md#GenerateParams)| Generation parameters. |
 
 #### GenerateApi.generateBody return type
 
@@ -55,7 +74,7 @@ Buffer
 
 ### generateMultipart
 
-Generate barcode using POST request with parameters in multipart form.
+Generate a barcode using a POST request with parameters in a multipart form.
 
 ```ts
 generateMultipart(barcodeType: EncodeBarcodeType, data: string): Buffer;
@@ -66,17 +85,36 @@ generateMultipart(barcodeType: EncodeBarcodeType, data: string): Buffer;
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcodeType** | [**EncodeBarcodeType**](models.md#EncodeBarcodeType)|  |
- **data** | **string**| String represents data to encode |
+ **data** | **string**| String that represents the data to encode. |
  **dataType** | [**EncodeDataType**](models.md#EncodeDataType)|  | [optional]
  **imageFormat** | [**BarcodeImageFormat**](models.md#BarcodeImageFormat)|  | [optional]
  **textLocation** | [**CodeLocation**](models.md#CodeLocation)|  | [optional]
- **foregroundColor** | **string**| Specify the displaying bars and content Color. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #. For example: AliceBlue or #FF000000 Default value: Black. | [optional] [default to '&#39;Black&#39;']
- **backgroundColor** | **string**| Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value started with #. For example: AliceBlue or #FF000000 Default value: White. | [optional] [default to '&#39;White&#39;']
+ **foregroundColor** | **string**| Specify the display color for bars and content. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: Black. | [optional] [default to '&#39;Black&#39;']
+ **backgroundColor** | **string**| Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: White. | [optional] [default to '&#39;White&#39;']
  **units** | [**GraphicsUnit**](models.md#GraphicsUnit)|  | [optional]
- **resolution** | **number**| Resolution of the BarCode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is dot. | [optional]
- **imageHeight** | **number**| Height of the barcode image in given units. Default units: pixel. Decimal separator is dot. | [optional]
- **imageWidth** | **number**| Width of the barcode image in given units. Default units: pixel. Decimal separator is dot. | [optional]
- **rotationAngle** | **number**| BarCode image rotation angle, measured in degree, e.g. RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle NOT equal to 90, 180, 270 or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional]
+ **resolution** | **number**| Resolution of the barcode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is a dot. | [optional]
+ **imageHeight** | **number**| Height of the barcode image in the specified units. Default units: pixels. Decimal separator is a dot. | [optional]
+ **imageWidth** | **number**| Width of the barcode image in the specified units. Default units: pixels. Decimal separator is a dot. | [optional]
+ **rotationAngle** | **number**| Barcode image rotation angle, measured in degrees. For example, RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle is not equal to 90, 180, 270, or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional]
+ **qrEncodeMode** | [**QREncodeMode**](models.md#QREncodeMode)|  | [optional]
+ **qrErrorLevel** | [**QRErrorLevel**](models.md#QRErrorLevel)|  | [optional]
+ **qrVersion** | [**QRVersion**](models.md#QRVersion)|  | [optional]
+ **qrECIEncoding** | [**ECIEncodings**](models.md#ECIEncodings)|  | [optional]
+ **qrAspectRatio** | **number**| QR barcode aspect ratio. Values: 0 to 1. | [optional]
+ **microQRVersion** | [**MicroQRVersion**](models.md#MicroQRVersion)|  | [optional]
+ **rectMicroQrVersion** | [**RectMicroQRVersion**](models.md#RectMicroQRVersion)|  | [optional]
+ **code128EncodeMode** | [**Code128EncodeMode**](models.md#Code128EncodeMode)|  | [optional]
+ **pdf417EncodeMode** | [**Pdf417EncodeMode**](models.md#Pdf417EncodeMode)|  | [optional]
+ **pdf417ErrorLevel** | [**Pdf417ErrorLevel**](models.md#Pdf417ErrorLevel)|  | [optional]
+ **pdf417Truncate** | **boolean**| Whether to use truncated PDF417 format (removes right-side stop pattern). | [optional]
+ **pdf417Columns** | **number**| Number of columns in the PDF417 barcode. Values between 1 and 30. 0 for auto. | [optional]
+ **pdf417Rows** | **number**| Number of rows in the PDF417 barcode. Values between 3 and 90. 0 for automatic. | [optional]
+ **pdf417AspectRatio** | **number**| PDF417 barcode aspect ratio (height/width of the barcode module). Values are defined by the standard: 2 to 5 for MicroPdf417; 3 to 5 for Pdf417 and MacroPdf417. | [optional]
+ **pdf417ECIEncoding** | [**ECIEncodings**](models.md#ECIEncodings)|  | [optional]
+ **pdf417IsReaderInitialization** | **boolean**| Whether the barcode is used for reader initialization (programming). | [optional]
+ **pdf417MacroCharacters** | [**MacroCharacter**](models.md#MacroCharacter)|  | [optional]
+ **pdf417IsLinked** | **boolean**| Whether to use linked mode (for MicroPdf417). | [optional]
+ **pdf417IsCode128Emulation** | **boolean**| Whether to use Code128 emulation for MicroPdf417. | [optional]
 
 #### GenerateApi.generateMultipart return type
 
@@ -88,7 +126,7 @@ Buffer
 
 ### recognize
 
-Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use `recognize-body` or `recognize-multipart` endpoints instead.
+Recognize a barcode from a file on an Internet server using a GET request with a query string parameter. For recognizing files from your hard drive, use `recognize-body` or `recognize-multipart` endpoints instead.
 
 ```ts
 recognize(barcodeType: DecodeBarcodeType, fileUrl: string): BarcodeResponseList;
@@ -98,10 +136,10 @@ recognize(barcodeType: DecodeBarcodeType, fileUrl: string): BarcodeResponseList;
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **barcodeType** | [**DecodeBarcodeType**](models.md#)| Type of barcode to recognize |
- **fileUrl** | **string**| Url to barcode image |
- **recognitionMode** | [**RecognitionMode**](models.md#)| Recognition mode | [optional]
- **recognitionImageKind** | [**RecognitionImageKind**](models.md#)| Image kind for recognition | [optional]
+ **barcodeType** | [**DecodeBarcodeType**](models.md#)| Type of barcode to recognize. |
+ **fileUrl** | **string**| URL to the barcode image. |
+ **recognitionMode** | [**RecognitionMode**](models.md#)| Recognition mode. | [optional]
+ **recognitionImageKind** | [**RecognitionImageKind**](models.md#)| Image kind for recognition. | [optional]
 
 #### RecognizeApi.recognize return type
 
@@ -111,7 +149,7 @@ Name | Type | Description  | Notes
 
 ### recognizeBase64
 
-Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
+Recognize a barcode from a file in the request body using a POST request with JSON or XML body parameters.
 
 ```ts
 recognizeBase64(recognizeBase64Request: RecognizeBase64Request): BarcodeResponseList;
@@ -121,7 +159,7 @@ recognizeBase64(recognizeBase64Request: RecognizeBase64Request): BarcodeResponse
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **recognizeBase64Request** | [**RecognizeBase64Request**](models.md#RecognizeBase64Request)| Barcode recognition request |
+ **recognizeBase64Request** | [**RecognizeBase64Request**](models.md#RecognizeBase64Request)| Barcode recognition request. |
 
 #### RecognizeApi.recognizeBase64 return type
 
@@ -131,7 +169,7 @@ Name | Type | Description  | Notes
 
 ### recognizeMultipart
 
-Recognize barcode from file in request body using POST requests with parameters in multipart form.
+Recognize a barcode from a file in the request body using a POST request with multipart form parameters.
 
 ```ts
 recognizeMultipart(barcodeType: DecodeBarcodeType, file: RequestFile): BarcodeResponseList;
@@ -142,7 +180,7 @@ recognizeMultipart(barcodeType: DecodeBarcodeType, file: RequestFile): BarcodeRe
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
  **barcodeType** | [**DecodeBarcodeType**](models.md#DecodeBarcodeType)|  |
- **file** | **RequestFile****RequestFile**| Barcode image file |
+ **file** | **RequestFile****RequestFile**| Barcode image file. |
  **recognitionMode** | [**RecognitionMode**](models.md#RecognitionMode)|  | [optional]
  **recognitionImageKind** | [**RecognitionImageKind**](models.md#RecognitionImageKind)|  | [optional]
 
@@ -156,7 +194,7 @@ Name | Type | Description  | Notes
 
 ### scan
 
-Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use `scan-body` or `scan-multipart` endpoints instead.
+Scan a barcode from a file on an Internet server using a GET request with a query string parameter. For scanning files from your hard drive, use `scan-body` or `scan-multipart` endpoints instead.
 
 ```ts
 scan(fileUrl: string): BarcodeResponseList;
@@ -166,7 +204,7 @@ scan(fileUrl: string): BarcodeResponseList;
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **fileUrl** | **string**| Url to barcode image |
+ **fileUrl** | **string**| URL to the barcode image. |
 
 #### ScanApi.scan return type
 
@@ -176,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### scanBase64
 
-Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
+Scan a barcode from a file in the request body using a POST request with a JSON or XML body parameter.
 
 ```ts
 scanBase64(scanBase64Request: ScanBase64Request): BarcodeResponseList;
@@ -186,7 +224,7 @@ scanBase64(scanBase64Request: ScanBase64Request): BarcodeResponseList;
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **scanBase64Request** | [**ScanBase64Request**](models.md#ScanBase64Request)| Barcode scan request |
+ **scanBase64Request** | [**ScanBase64Request**](models.md#ScanBase64Request)| Barcode scan request. |
 
 #### ScanApi.scanBase64 return type
 
@@ -196,7 +234,7 @@ Name | Type | Description  | Notes
 
 ### scanMultipart
 
-Scan barcode from file in request body using POST requests with parameter in multipart form.
+Scan a barcode from a file in the request body using a POST request with a multipart form parameter.
 
 ```ts
 scanMultipart(file: RequestFile): BarcodeResponseList;
@@ -206,7 +244,7 @@ scanMultipart(file: RequestFile): BarcodeResponseList;
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **file** | **RequestFile****RequestFile**| Barcode image file |
+ **file** | **RequestFile****RequestFile**| Barcode image file. |
 
 #### ScanApi.scanMultipart return type
 

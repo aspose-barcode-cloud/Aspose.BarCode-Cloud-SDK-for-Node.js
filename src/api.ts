@@ -10,16 +10,29 @@ import {
     BarcodeImageParams,
     BarcodeResponse,
     BarcodeResponseList,
+    Code128EncodeMode,
+    Code128Params,
     CodeLocation,
     DecodeBarcodeType,
+    ECIEncodings,
     EncodeBarcodeType,
     EncodeData,
     EncodeDataType,
     GenerateParams,
     GraphicsUnit,
+    MacroCharacter,
+    MicroQRVersion,
+    Pdf417EncodeMode,
+    Pdf417ErrorLevel,
+    Pdf417Params,
+    QREncodeMode,
+    QRErrorLevel,
+    QRVersion,
+    QrParams,
     RecognitionImageKind,
     RecognitionMode,
     RecognizeBase64Request,
+    RectMicroQRVersion,
     RegionPoint,
     ScanBase64Request,
 } from './models';
@@ -395,13 +408,23 @@ class ObjectSerializer {
 
 let enumsMap: { [index: string]: any } = {
     BarcodeImageFormat: BarcodeImageFormat,
+    Code128EncodeMode: Code128EncodeMode,
     CodeLocation: CodeLocation,
     DecodeBarcodeType: DecodeBarcodeType,
+    ECIEncodings: ECIEncodings,
     EncodeBarcodeType: EncodeBarcodeType,
     EncodeDataType: EncodeDataType,
     GraphicsUnit: GraphicsUnit,
+    MacroCharacter: MacroCharacter,
+    MicroQRVersion: MicroQRVersion,
+    Pdf417EncodeMode: Pdf417EncodeMode,
+    Pdf417ErrorLevel: Pdf417ErrorLevel,
+    QREncodeMode: QREncodeMode,
+    QRErrorLevel: QRErrorLevel,
+    QRVersion: QRVersion,
     RecognitionImageKind: RecognitionImageKind,
     RecognitionMode: RecognitionMode,
+    RectMicroQRVersion: RectMicroQRVersion,
 };
 
 let typeMap: { [index: string]: any } = {
@@ -410,8 +433,11 @@ let typeMap: { [index: string]: any } = {
     BarcodeImageParams: BarcodeImageParams,
     BarcodeResponse: BarcodeResponse,
     BarcodeResponseList: BarcodeResponseList,
+    Code128Params: Code128Params,
     EncodeData: EncodeData,
     GenerateParams: GenerateParams,
+    Pdf417Params: Pdf417Params,
+    QrParams: QrParams,
     RecognizeBase64Request: RecognizeBase64Request,
     RegionPoint: RegionPoint,
     ScanBase64Request: ScanBase64Request,
@@ -420,7 +446,7 @@ let typeMap: { [index: string]: any } = {
 export class GenerateApi {
     protected defaultHeaders: any = {
         'x-aspose-client': 'nodejs sdk',
-        'x-aspose-client-version': '26.5.0',
+        'x-aspose-client-version': '26.6.0',
     };
     protected _configuration: Configuration;
     private _client: ApiClient;
@@ -431,7 +457,7 @@ export class GenerateApi {
     }
 
     /**
-     * Generate barcode using GET request with parameters in route and query string.
+     * Generate a barcode using a GET request with parameters in the route and query string.
      * @param request GenerateRequestWrapper
      */
     public async generate(request: GenerateRequestWrapper): Promise<{ response: ApiResponse; body: Buffer }> {
@@ -495,6 +521,106 @@ export class GenerateApi {
             queryParameters['rotationAngle'] = ObjectSerializer.serialize(request.rotationAngle, 'number');
         }
 
+        if (request.qrEncodeMode != null) {
+            queryParameters['qrEncodeMode'] = ObjectSerializer.serialize(request.qrEncodeMode, 'QREncodeMode');
+        }
+
+        if (request.qrErrorLevel != null) {
+            queryParameters['qrErrorLevel'] = ObjectSerializer.serialize(request.qrErrorLevel, 'QRErrorLevel');
+        }
+
+        if (request.qrVersion != null) {
+            queryParameters['qrVersion'] = ObjectSerializer.serialize(request.qrVersion, 'QRVersion');
+        }
+
+        if (request.qrECIEncoding != null) {
+            queryParameters['qrECIEncoding'] = ObjectSerializer.serialize(request.qrECIEncoding, 'ECIEncodings');
+        }
+
+        if (request.qrAspectRatio != null) {
+            queryParameters['qrAspectRatio'] = ObjectSerializer.serialize(request.qrAspectRatio, 'number');
+        }
+
+        if (request.microQRVersion != null) {
+            queryParameters['microQRVersion'] = ObjectSerializer.serialize(request.microQRVersion, 'MicroQRVersion');
+        }
+
+        if (request.rectMicroQrVersion != null) {
+            queryParameters['rectMicroQrVersion'] = ObjectSerializer.serialize(
+                request.rectMicroQrVersion,
+                'RectMicroQRVersion'
+            );
+        }
+
+        if (request.code128EncodeMode != null) {
+            queryParameters['code128EncodeMode'] = ObjectSerializer.serialize(
+                request.code128EncodeMode,
+                'Code128EncodeMode'
+            );
+        }
+
+        if (request.pdf417EncodeMode != null) {
+            queryParameters['pdf417EncodeMode'] = ObjectSerializer.serialize(
+                request.pdf417EncodeMode,
+                'Pdf417EncodeMode'
+            );
+        }
+
+        if (request.pdf417ErrorLevel != null) {
+            queryParameters['pdf417ErrorLevel'] = ObjectSerializer.serialize(
+                request.pdf417ErrorLevel,
+                'Pdf417ErrorLevel'
+            );
+        }
+
+        if (request.pdf417Truncate != null) {
+            queryParameters['pdf417Truncate'] = ObjectSerializer.serialize(request.pdf417Truncate, 'boolean');
+        }
+
+        if (request.pdf417Columns != null) {
+            queryParameters['pdf417Columns'] = ObjectSerializer.serialize(request.pdf417Columns, 'number');
+        }
+
+        if (request.pdf417Rows != null) {
+            queryParameters['pdf417Rows'] = ObjectSerializer.serialize(request.pdf417Rows, 'number');
+        }
+
+        if (request.pdf417AspectRatio != null) {
+            queryParameters['pdf417AspectRatio'] = ObjectSerializer.serialize(request.pdf417AspectRatio, 'number');
+        }
+
+        if (request.pdf417ECIEncoding != null) {
+            queryParameters['pdf417ECIEncoding'] = ObjectSerializer.serialize(
+                request.pdf417ECIEncoding,
+                'ECIEncodings'
+            );
+        }
+
+        if (request.pdf417IsReaderInitialization != null) {
+            queryParameters['pdf417IsReaderInitialization'] = ObjectSerializer.serialize(
+                request.pdf417IsReaderInitialization,
+                'boolean'
+            );
+        }
+
+        if (request.pdf417MacroCharacters != null) {
+            queryParameters['pdf417MacroCharacters'] = ObjectSerializer.serialize(
+                request.pdf417MacroCharacters,
+                'MacroCharacter'
+            );
+        }
+
+        if (request.pdf417IsLinked != null) {
+            queryParameters['pdf417IsLinked'] = ObjectSerializer.serialize(request.pdf417IsLinked, 'boolean');
+        }
+
+        if (request.pdf417IsCode128Emulation != null) {
+            queryParameters['pdf417IsCode128Emulation'] = ObjectSerializer.serialize(
+                request.pdf417IsCode128Emulation,
+                'boolean'
+            );
+        }
+
         const requestOptions: ApiRequestOptions = {
             method: 'GET',
             qs: queryParameters,
@@ -514,7 +640,7 @@ export class GenerateApi {
     }
 
     /**
-     * Generate barcode using POST request with parameters in body in json or xml format.
+     * Generate a barcode using a POST request with parameters in the request body in JSON or XML format.
      * @param request GenerateBodyRequestWrapper
      */
     public async generateBody(request: GenerateBodyRequestWrapper): Promise<{ response: ApiResponse; body: Buffer }> {
@@ -550,7 +676,7 @@ export class GenerateApi {
     }
 
     /**
-     * Generate barcode using POST request with parameters in multipart form.
+     * Generate a barcode using a POST request with parameters in a multipart form.
      * @param request GenerateMultipartRequestWrapper
      */
     public async generateMultipart(
@@ -609,6 +735,87 @@ export class GenerateApi {
         if (request.rotationAngle != null) {
             formParams.push(['rotationAngle', ObjectSerializer.serialize(request.rotationAngle, 'number')]);
         }
+        if (request.qrEncodeMode != null) {
+            formParams.push(['qrEncodeMode', ObjectSerializer.serialize(request.qrEncodeMode, 'QREncodeMode')]);
+        }
+        if (request.qrErrorLevel != null) {
+            formParams.push(['qrErrorLevel', ObjectSerializer.serialize(request.qrErrorLevel, 'QRErrorLevel')]);
+        }
+        if (request.qrVersion != null) {
+            formParams.push(['qrVersion', ObjectSerializer.serialize(request.qrVersion, 'QRVersion')]);
+        }
+        if (request.qrECIEncoding != null) {
+            formParams.push(['qrECIEncoding', ObjectSerializer.serialize(request.qrECIEncoding, 'ECIEncodings')]);
+        }
+        if (request.qrAspectRatio != null) {
+            formParams.push(['qrAspectRatio', ObjectSerializer.serialize(request.qrAspectRatio, 'number')]);
+        }
+        if (request.microQRVersion != null) {
+            formParams.push(['microQRVersion', ObjectSerializer.serialize(request.microQRVersion, 'MicroQRVersion')]);
+        }
+        if (request.rectMicroQrVersion != null) {
+            formParams.push([
+                'rectMicroQrVersion',
+                ObjectSerializer.serialize(request.rectMicroQrVersion, 'RectMicroQRVersion'),
+            ]);
+        }
+        if (request.code128EncodeMode != null) {
+            formParams.push([
+                'code128EncodeMode',
+                ObjectSerializer.serialize(request.code128EncodeMode, 'Code128EncodeMode'),
+            ]);
+        }
+        if (request.pdf417EncodeMode != null) {
+            formParams.push([
+                'pdf417EncodeMode',
+                ObjectSerializer.serialize(request.pdf417EncodeMode, 'Pdf417EncodeMode'),
+            ]);
+        }
+        if (request.pdf417ErrorLevel != null) {
+            formParams.push([
+                'pdf417ErrorLevel',
+                ObjectSerializer.serialize(request.pdf417ErrorLevel, 'Pdf417ErrorLevel'),
+            ]);
+        }
+        if (request.pdf417Truncate != null) {
+            formParams.push(['pdf417Truncate', ObjectSerializer.serialize(request.pdf417Truncate, 'boolean')]);
+        }
+        if (request.pdf417Columns != null) {
+            formParams.push(['pdf417Columns', ObjectSerializer.serialize(request.pdf417Columns, 'number')]);
+        }
+        if (request.pdf417Rows != null) {
+            formParams.push(['pdf417Rows', ObjectSerializer.serialize(request.pdf417Rows, 'number')]);
+        }
+        if (request.pdf417AspectRatio != null) {
+            formParams.push(['pdf417AspectRatio', ObjectSerializer.serialize(request.pdf417AspectRatio, 'number')]);
+        }
+        if (request.pdf417ECIEncoding != null) {
+            formParams.push([
+                'pdf417ECIEncoding',
+                ObjectSerializer.serialize(request.pdf417ECIEncoding, 'ECIEncodings'),
+            ]);
+        }
+        if (request.pdf417IsReaderInitialization != null) {
+            formParams.push([
+                'pdf417IsReaderInitialization',
+                ObjectSerializer.serialize(request.pdf417IsReaderInitialization, 'boolean'),
+            ]);
+        }
+        if (request.pdf417MacroCharacters != null) {
+            formParams.push([
+                'pdf417MacroCharacters',
+                ObjectSerializer.serialize(request.pdf417MacroCharacters, 'MacroCharacter'),
+            ]);
+        }
+        if (request.pdf417IsLinked != null) {
+            formParams.push(['pdf417IsLinked', ObjectSerializer.serialize(request.pdf417IsLinked, 'boolean')]);
+        }
+        if (request.pdf417IsCode128Emulation != null) {
+            formParams.push([
+                'pdf417IsCode128Emulation',
+                ObjectSerializer.serialize(request.pdf417IsCode128Emulation, 'boolean'),
+            ]);
+        }
         const requestOptions: ApiRequestOptions = {
             method: 'POST',
             qs: queryParameters,
@@ -637,7 +844,7 @@ export class GenerateApi {
 export class RecognizeApi {
     protected defaultHeaders: any = {
         'x-aspose-client': 'nodejs sdk',
-        'x-aspose-client-version': '26.5.0',
+        'x-aspose-client-version': '26.6.0',
     };
     protected _configuration: Configuration;
     private _client: ApiClient;
@@ -648,7 +855,7 @@ export class RecognizeApi {
     }
 
     /**
-     * Recognize barcode from file on server in the Internet using GET requests with parameter in query string. For recognizing files from your hard drive use `recognize-body` or `recognize-multipart` endpoints instead.
+     * Recognize a barcode from a file on an Internet server using a GET request with a query string parameter. For recognizing files from your hard drive, use `recognize-body` or `recognize-multipart` endpoints instead.
      * @param request RecognizeRequestWrapper
      */
     public async recognize(
@@ -705,7 +912,7 @@ export class RecognizeApi {
     }
 
     /**
-     * Recognize barcode from file in request body using POST requests with parameters in body in json or xml format.
+     * Recognize a barcode from a file in the request body using a POST request with JSON or XML body parameters.
      * @param request RecognizeBase64RequestWrapper
      */
     public async recognizeBase64(
@@ -742,7 +949,7 @@ export class RecognizeApi {
     }
 
     /**
-     * Recognize barcode from file in request body using POST requests with parameters in multipart form.
+     * Recognize a barcode from a file in the request body using a POST request with multipart form parameters.
      * @param request RecognizeMultipartRequestWrapper
      */
     public async recognizeMultipart(
@@ -809,7 +1016,7 @@ export class RecognizeApi {
 export class ScanApi {
     protected defaultHeaders: any = {
         'x-aspose-client': 'nodejs sdk',
-        'x-aspose-client-version': '26.5.0',
+        'x-aspose-client-version': '26.6.0',
     };
     protected _configuration: Configuration;
     private _client: ApiClient;
@@ -820,7 +1027,7 @@ export class ScanApi {
     }
 
     /**
-     * Scan barcode from file on server in the Internet using GET requests with parameter in query string. For scaning files from your hard drive use `scan-body` or `scan-multipart` endpoints instead.
+     * Scan a barcode from a file on an Internet server using a GET request with a query string parameter. For scanning files from your hard drive, use `scan-body` or `scan-multipart` endpoints instead.
      * @param request ScanRequestWrapper
      */
     public async scan(request: ScanRequestWrapper): Promise<{ response: ApiResponse; body: BarcodeResponseList }> {
@@ -855,7 +1062,7 @@ export class ScanApi {
     }
 
     /**
-     * Scan barcode from file in request body using POST requests with parameter in body in json or xml format.
+     * Scan a barcode from a file in the request body using a POST request with a JSON or XML body parameter.
      * @param request ScanBase64RequestWrapper
      */
     public async scanBase64(
@@ -892,7 +1099,7 @@ export class ScanApi {
     }
 
     /**
-     * Scan barcode from file in request body using POST requests with parameter in multipart form.
+     * Scan a barcode from a file in the request body using a POST request with a multipart form parameter.
      * @param request ScanMultipartRequestWrapper
      */
     public async scanMultipart(
