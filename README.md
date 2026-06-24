@@ -65,10 +65,11 @@ async function generateBarcode(api) {
     const request = new Barcode.GenerateRequestWrapper(
         Barcode.EncodeBarcodeType.Qr,
         'Aspose.BarCode for Cloud Sample');
-    request.qrEncodeMode = Barcode.QREncodeMode.Auto;
-    request.qrErrorLevel = Barcode.QRErrorLevel.LevelM;
-    request.qrVersion = Barcode.QRVersion.Auto;
-    request.qrAspectRatio = 0.75;
+    request.qrParams = new Barcode.QrParams();
+    request.qrParams.qrEncodeMode = Barcode.QREncodeMode.Auto;
+    request.qrParams.qrErrorLevel = Barcode.QRErrorLevel.LevelM;
+    request.qrParams.qrVersion = Barcode.QRVersion.Auto;
+    request.qrParams.qrAspectRatio = 0.75;
 
     const oneBarcode = await api.generate(request);
 

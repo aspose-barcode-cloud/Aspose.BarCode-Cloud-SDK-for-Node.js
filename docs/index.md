@@ -84,35 +84,35 @@ generateMultipart(barcodeType: EncodeBarcodeType, data: string): Buffer;
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **barcodeType** | [**EncodeBarcodeType**](models.md#EncodeBarcodeType)|  |
+ **barcodeType** | [**EncodeBarcodeType**](models.md#EncodeBarcodeType)| See https://reference.aspose.com/barcode/net/aspose.barcode.generation/encodetypes/ |
  **data** | **string**| String that represents the data to encode. |
- **dataType** | [**EncodeDataType**](models.md#EncodeDataType)|  | [optional]
- **imageFormat** | [**BarcodeImageFormat**](models.md#BarcodeImageFormat)|  | [optional]
- **textLocation** | [**CodeLocation**](models.md#CodeLocation)|  | [optional]
+ **dataType** | [**EncodeDataType**](models.md#EncodeDataType)| Type of data to encode. Default value: StringData. | [optional]
+ **imageFormat** | [**BarcodeImageFormat**](models.md#BarcodeImageFormat)| Barcode output image format. Default value: png. | [optional]
+ **textLocation** | [**CodeLocation**](models.md#CodeLocation)| Specify the displayed text location. Set to CodeLocation.None to hide CodeText. Default value depends on BarcodeType: CodeLocation.Below for 1D barcodes and CodeLocation.None for 2D barcodes. | [optional]
  **foregroundColor** | **string**| Specify the display color for bars and content. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: Black. | [optional] [default to '&#39;Black&#39;']
  **backgroundColor** | **string**| Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: White. | [optional] [default to '&#39;White&#39;']
- **units** | [**GraphicsUnit**](models.md#GraphicsUnit)|  | [optional]
+ **units** | [**GraphicsUnit**](models.md#GraphicsUnit)| Common units for all measurements. Default units: pixels. | [optional]
  **resolution** | **number**| Resolution of the barcode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is a dot. | [optional]
  **imageHeight** | **number**| Height of the barcode image in the specified units. Default units: pixels. Decimal separator is a dot. | [optional]
  **imageWidth** | **number**| Width of the barcode image in the specified units. Default units: pixels. Decimal separator is a dot. | [optional]
  **rotationAngle** | **number**| Barcode image rotation angle, measured in degrees. For example, RotationAngle &#x3D; 0 or RotationAngle &#x3D; 360 means no rotation. If RotationAngle is not equal to 90, 180, 270, or 0, it may increase the difficulty for the scanner to read the image. Default value: 0. | [optional]
- **qrEncodeMode** | [**QREncodeMode**](models.md#QREncodeMode)|  | [optional]
- **qrErrorLevel** | [**QRErrorLevel**](models.md#QRErrorLevel)|  | [optional]
- **qrVersion** | [**QRVersion**](models.md#QRVersion)|  | [optional]
- **qrECIEncoding** | [**ECIEncodings**](models.md#ECIEncodings)|  | [optional]
+ **qrEncodeMode** | [**QREncodeMode**](models.md#QREncodeMode)| QR barcode encode mode. | [optional]
+ **qrErrorLevel** | [**QRErrorLevel**](models.md#QRErrorLevel)| QR barcode error correction level. | [optional]
+ **qrVersion** | [**QRVersion**](models.md#QRVersion)| QR barcode version. Automatically selects the smallest version that fits the data. | [optional]
+ **qrECIEncoding** | [**ECIEncodings**](models.md#ECIEncodings)| ECI encoding for QR barcode data. | [optional]
  **qrAspectRatio** | **number**| QR barcode aspect ratio. Values: 0 to 1. | [optional]
- **microQRVersion** | [**MicroQRVersion**](models.md#MicroQRVersion)|  | [optional]
- **rectMicroQrVersion** | [**RectMicroQRVersion**](models.md#RectMicroQRVersion)|  | [optional]
- **code128EncodeMode** | [**Code128EncodeMode**](models.md#Code128EncodeMode)|  | [optional]
- **pdf417EncodeMode** | [**Pdf417EncodeMode**](models.md#Pdf417EncodeMode)|  | [optional]
- **pdf417ErrorLevel** | [**Pdf417ErrorLevel**](models.md#Pdf417ErrorLevel)|  | [optional]
+ **microQRVersion** | [**MicroQRVersion**](models.md#MicroQRVersion)| MicroQR barcode version. Used when BarcodeType is MicroQR. | [optional]
+ **rectMicroQrVersion** | [**RectMicroQRVersion**](models.md#RectMicroQRVersion)| RectMicroQR barcode version. Used when BarcodeType is RectMicroQR. | [optional]
+ **code128EncodeMode** | [**Code128EncodeMode**](models.md#Code128EncodeMode)| Code128 barcode encode mode. Controls which Code 128 subset (A, B, C, or mix) is used. | [optional]
+ **pdf417EncodeMode** | [**Pdf417EncodeMode**](models.md#Pdf417EncodeMode)| PDF417 barcode encode mode. | [optional]
+ **pdf417ErrorLevel** | [**Pdf417ErrorLevel**](models.md#Pdf417ErrorLevel)| PDF417 barcode error correction level. | [optional]
  **pdf417Truncate** | **boolean**| Whether to use truncated PDF417 format (removes right-side stop pattern). | [optional]
  **pdf417Columns** | **number**| Number of columns in the PDF417 barcode. Values between 1 and 30. 0 for auto. | [optional]
  **pdf417Rows** | **number**| Number of rows in the PDF417 barcode. Values between 3 and 90. 0 for automatic. | [optional]
  **pdf417AspectRatio** | **number**| PDF417 barcode aspect ratio (height/width of the barcode module). Values are defined by the standard: 2 to 5 for MicroPdf417; 3 to 5 for Pdf417 and MacroPdf417. | [optional]
- **pdf417ECIEncoding** | [**ECIEncodings**](models.md#ECIEncodings)|  | [optional]
+ **pdf417ECIEncoding** | [**ECIEncodings**](models.md#ECIEncodings)| ECI encoding for PDF417 barcode data. | [optional]
  **pdf417IsReaderInitialization** | **boolean**| Whether the barcode is used for reader initialization (programming). | [optional]
- **pdf417MacroCharacters** | [**MacroCharacter**](models.md#MacroCharacter)|  | [optional]
+ **pdf417MacroCharacters** | [**MacroCharacter**](models.md#MacroCharacter)| Macro character to prepend (structured append). | [optional]
  **pdf417IsLinked** | **boolean**| Whether to use linked mode (for MicroPdf417). | [optional]
  **pdf417IsCode128Emulation** | **boolean**| Whether to use Code128 emulation for MicroPdf417. | [optional]
 
@@ -179,10 +179,10 @@ recognizeMultipart(barcodeType: DecodeBarcodeType, file: RequestFile): BarcodeRe
 
 Name | Type | Description  | Notes
 ---- | ---- | ------------ | -----
- **barcodeType** | [**DecodeBarcodeType**](models.md#DecodeBarcodeType)|  |
+ **barcodeType** | [**DecodeBarcodeType**](models.md#DecodeBarcodeType)| See https://reference.aspose.com/barcode/net/aspose.barcode.barcoderecognition/decodetype/ |
  **file** | **RequestFile****RequestFile**| Barcode image file. |
- **recognitionMode** | [**RecognitionMode**](models.md#RecognitionMode)|  | [optional]
- **recognitionImageKind** | [**RecognitionImageKind**](models.md#RecognitionImageKind)|  | [optional]
+ **recognitionMode** | [**RecognitionMode**](models.md#RecognitionMode)| Recognition mode. | [optional]
+ **recognitionImageKind** | [**RecognitionImageKind**](models.md#RecognitionImageKind)| Image kind for recognition. | [optional]
 
 #### RecognizeApi.recognizeMultipart return type
 

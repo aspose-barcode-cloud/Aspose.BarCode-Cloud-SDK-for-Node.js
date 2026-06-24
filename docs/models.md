@@ -26,6 +26,10 @@ interface ApiError {
      * Gets or sets server datetime.
      */
     dateTime?: Date;
+
+    /**
+     * Gets or sets inner error.
+     */
     innerError?: ApiError;
 }
 ```
@@ -41,6 +45,10 @@ interface ApiErrorResponse {
      * Gets or sets request Id.
      */
     requestId: string;
+
+    /**
+     * Gets or sets error.
+     */
     error: ApiError;
 }
 ```
@@ -65,7 +73,15 @@ Optional barcode image parameters.
 
 ```ts
 interface BarcodeImageParams {
+
+    /**
+     * Barcode output image format. Default value: png.
+     */
     imageFormat?: BarcodeImageFormat;
+
+    /**
+     * Specify the displayed text location. Set to CodeLocation.None to hide CodeText. Default value depends on BarcodeType: CodeLocation.Below for 1D barcodes and CodeLocation.None for 2D barcodes.
+     */
     textLocation?: CodeLocation;
 
     /**
@@ -77,6 +93,10 @@ interface BarcodeImageParams {
      * Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: White.
      */
     backgroundColor?: string;
+
+    /**
+     * Common units for all measurements. Default units: pixels.
+     */
     units?: GraphicsUnit;
 
     /**
@@ -166,6 +186,10 @@ Optional Code128 barcode generation parameters.
 
 ```ts
 interface Code128Params {
+
+    /**
+     * Code128 barcode encode mode. Controls which Code 128 subset (A, B, C, or mix) is used.
+     */
     code128EncodeMode?: Code128EncodeMode;
 }
 ```
@@ -403,6 +427,10 @@ Data to encode in a barcode.
 
 ```ts
 interface EncodeData {
+
+    /**
+     * Type of data to encode. Default value: StringData.
+     */
     dataType?: EncodeDataType;
 
     /**
@@ -430,11 +458,35 @@ Barcode generation parameters.
 
 ```ts
 interface GenerateParams {
+
+    /**
+     * Barcode type.
+     */
     barcodeType: EncodeBarcodeType;
+
+    /**
+     * Data to encode into a barcode.
+     */
     encodeData: EncodeData;
+
+    /**
+     * Optional barcode image parameters.
+     */
     barcodeImageParams?: BarcodeImageParams;
+
+    /**
+     * Optional QR barcode generation parameters.
+     */
     qrParams?: QrParams;
+
+    /**
+     * Optional Code128 barcode generation parameters.
+     */
     code128Params?: Code128Params;
+
+    /**
+     * Optional PDF417 barcode generation parameters.
+     */
     pdf417Params?: Pdf417Params;
 }
 ```
@@ -515,7 +567,15 @@ Optional PDF417 barcode generation parameters. Applies to Pdf417, MacroPdf417, M
 
 ```ts
 interface Pdf417Params {
+
+    /**
+     * PDF417 barcode encode mode.
+     */
     pdf417EncodeMode?: Pdf417EncodeMode;
+
+    /**
+     * PDF417 barcode error correction level.
+     */
     pdf417ErrorLevel?: Pdf417ErrorLevel;
 
     /**
@@ -537,12 +597,20 @@ interface Pdf417Params {
      * PDF417 barcode aspect ratio (height/width of the barcode module). Values are defined by the standard: 2 to 5 for MicroPdf417; 3 to 5 for Pdf417 and MacroPdf417.
      */
     pdf417AspectRatio?: number;
+
+    /**
+     * ECI encoding for PDF417 barcode data.
+     */
     pdf417ECIEncoding?: ECIEncodings;
 
     /**
      * Whether the barcode is used for reader initialization (programming).
      */
     pdf417IsReaderInitialization?: boolean;
+
+    /**
+     * Macro character to prepend (structured append).
+     */
     pdf417MacroCharacters?: MacroCharacter;
 
     /**
@@ -639,16 +707,40 @@ Optional QR barcode generation parameters. Applies to QR, GS1QR, MicroQR, and Re
 
 ```ts
 interface QrParams {
+
+    /**
+     * QR barcode encode mode.
+     */
     qrEncodeMode?: QREncodeMode;
+
+    /**
+     * QR barcode error correction level.
+     */
     qrErrorLevel?: QRErrorLevel;
+
+    /**
+     * QR barcode version. Automatically selects the smallest version that fits the data.
+     */
     qrVersion?: QRVersion;
+
+    /**
+     * ECI encoding for QR barcode data.
+     */
     qrECIEncoding?: ECIEncodings;
 
     /**
      * QR barcode aspect ratio. Values: 0 to 1.
      */
     qrAspectRatio?: number;
+
+    /**
+     * MicroQR barcode version. Used when BarcodeType is MicroQR.
+     */
     microQRVersion?: MicroQRVersion;
+
+    /**
+     * RectMicroQR barcode version. Used when BarcodeType is RectMicroQR.
+     */
     rectMicroQrVersion?: RectMicroQRVersion;
 }
 ```
@@ -693,7 +785,15 @@ interface RecognizeBase64Request {
      * Barcode image bytes encoded as base-64.
      */
     fileBase64: string;
+
+    /**
+     * Barcode recognition mode.
+     */
     recognitionMode?: RecognitionMode;
+
+    /**
+     * Image kind for recognition.
+     */
     recognitionImageKind?: RecognitionImageKind;
 }
 ```
