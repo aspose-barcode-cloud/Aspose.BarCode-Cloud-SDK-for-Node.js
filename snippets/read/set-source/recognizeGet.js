@@ -25,7 +25,8 @@ async function recognizeBarcode(api, fileUrl) {
 
 const recognizeApi = new Barcode.RecognizeApi(config);
 
-const fileUrl = 'https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png';
+const fileUrl =
+    'https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/main/testdata/QR_and_Code128.png';
 
 recognizeBarcode(recognizeApi, fileUrl)
     .then((barcodes) => {

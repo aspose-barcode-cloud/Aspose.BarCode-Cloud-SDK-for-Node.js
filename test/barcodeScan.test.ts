@@ -5,12 +5,14 @@ import assert from 'assert';
 import * as Barcode from '../src/api';
 import { LoadTestConfiguration } from './helpers';
 
-describe('barcodeRecognize', () => {
+describe('barcodeScan', () => {
     jest.setTimeout(60000);
 
     const config = LoadTestConfiguration();
     const api = new Barcode.ScanApi(config);
 
+    const publicTestImageUrl =
+        'https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/main/testdata/QR_and_Code128.png';
     const imageBuffer = fs.readFileSync('./testdata/pdf417Sample.png');
     const base64File = fs.readFileSync('./testdata/QR_and_Code128.png').toString('base64');
 
@@ -56,18 +58,20 @@ describe('barcodeRecognize', () => {
         assert.strictEqual(barcode.barcodeValue, 'Hello world!');
     });
 
-    it('recognizeBase64 should recognize image from URL', async () => {
-        const scanRequest = new Barcode.ScanRequestWrapper(
-            'https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png'
-        );
+    it('scan should recognize image from URL', async () => {
+        const scanRequest = new Barcode.ScanRequestWrapper(publicTestImageUrl);
 
         const recognized = await api.scan(scanRequest);
 
         assert.ok(recognized.body.barcodes);
-        assert.strictEqual(recognized.body.barcodes.length, 1);
+        assert.strictEqual(recognized.body.barcodes.length, 2);
 
         let barcode = recognized.body.barcodes[0];
         assert.strictEqual(barcode.type, Barcode.DecodeBarcodeType.Qr);
-        assert.strictEqual(barcode.barcodeValue, 'http://en.m.wikipedia.org');
+        assert.strictEqual(barcode.barcodeValue, 'Hello world!');
+
+        barcode = recognized.body.barcodes[1];
+        assert.strictEqual(barcode.type, Barcode.DecodeBarcodeType.Code128);
+        assert.strictEqual(barcode.barcodeValue, 'Hello world!');
     });
 });
