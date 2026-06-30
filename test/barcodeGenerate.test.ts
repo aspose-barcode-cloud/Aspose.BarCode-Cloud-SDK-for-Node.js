@@ -10,7 +10,8 @@ describe('barcodeGenerateApiTests', () => {
 
     it('should generate image with generate', async () => {
         const request = new Barcode.GenerateRequestWrapper(Barcode.EncodeBarcodeType.Qr, 'Testing generator');
-        request.foregroundColor = '0x001100';
+        request.barcodeImageParams = new Barcode.BarcodeImageParams();
+        request.barcodeImageParams.foregroundColor = '0x001100';
         const generated = await api.generate(request);
 
         const imageSize = generated.body.buffer.byteLength;
@@ -38,7 +39,8 @@ describe('barcodeGenerateApiTests', () => {
 
     it('should generate image with generateBody', async () => {
         const request = new Barcode.GenerateMultipartRequestWrapper(Barcode.EncodeBarcodeType.Qr, 'Testing generator');
-        request.rotationAngle = 90;
+        request.barcodeImageParams = new Barcode.BarcodeImageParams();
+        request.barcodeImageParams.rotationAngle = 90;
         const generated = await api.generateMultipart(request);
 
         const imageSize = generated.body.buffer.byteLength;

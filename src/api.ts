@@ -485,138 +485,171 @@ export class GenerateApi {
             queryParameters['data'] = ObjectSerializer.serialize(request.data, 'string');
         }
 
-        if (request.imageFormat != null) {
-            queryParameters['imageFormat'] = ObjectSerializer.serialize(request.imageFormat, 'BarcodeImageFormat');
-        }
-
-        if (request.textLocation != null) {
-            queryParameters['textLocation'] = ObjectSerializer.serialize(request.textLocation, 'CodeLocation');
-        }
-
-        if (request.foregroundColor != null) {
-            queryParameters['foregroundColor'] = ObjectSerializer.serialize(request.foregroundColor, 'string');
-        }
-
-        if (request.backgroundColor != null) {
-            queryParameters['backgroundColor'] = ObjectSerializer.serialize(request.backgroundColor, 'string');
-        }
-
-        if (request.units != null) {
-            queryParameters['units'] = ObjectSerializer.serialize(request.units, 'GraphicsUnit');
-        }
-
-        if (request.resolution != null) {
-            queryParameters['resolution'] = ObjectSerializer.serialize(request.resolution, 'number');
-        }
-
-        if (request.imageHeight != null) {
-            queryParameters['imageHeight'] = ObjectSerializer.serialize(request.imageHeight, 'number');
-        }
-
-        if (request.imageWidth != null) {
-            queryParameters['imageWidth'] = ObjectSerializer.serialize(request.imageWidth, 'number');
-        }
-
-        if (request.rotationAngle != null) {
-            queryParameters['rotationAngle'] = ObjectSerializer.serialize(request.rotationAngle, 'number');
-        }
-
-        if (request.qrEncodeMode != null) {
-            queryParameters['qrEncodeMode'] = ObjectSerializer.serialize(request.qrEncodeMode, 'QREncodeMode');
-        }
-
-        if (request.qrErrorLevel != null) {
-            queryParameters['qrErrorLevel'] = ObjectSerializer.serialize(request.qrErrorLevel, 'QRErrorLevel');
-        }
-
-        if (request.qrVersion != null) {
-            queryParameters['qrVersion'] = ObjectSerializer.serialize(request.qrVersion, 'QRVersion');
-        }
-
-        if (request.qrECIEncoding != null) {
-            queryParameters['qrECIEncoding'] = ObjectSerializer.serialize(request.qrECIEncoding, 'ECIEncodings');
-        }
-
-        if (request.qrAspectRatio != null) {
-            queryParameters['qrAspectRatio'] = ObjectSerializer.serialize(request.qrAspectRatio, 'number');
-        }
-
-        if (request.microQRVersion != null) {
-            queryParameters['microQRVersion'] = ObjectSerializer.serialize(request.microQRVersion, 'MicroQRVersion');
-        }
-
-        if (request.rectMicroQrVersion != null) {
-            queryParameters['rectMicroQrVersion'] = ObjectSerializer.serialize(
-                request.rectMicroQrVersion,
-                'RectMicroQRVersion'
+        if (request.barcodeImageParams?.imageFormat != null) {
+            queryParameters['imageFormat'] = ObjectSerializer.serialize(
+                request.barcodeImageParams.imageFormat,
+                'BarcodeImageFormat'
             );
         }
 
-        if (request.code128EncodeMode != null) {
-            queryParameters['code128EncodeMode'] = ObjectSerializer.serialize(
-                request.code128EncodeMode,
-                'Code128EncodeMode'
+        if (request.barcodeImageParams?.textLocation != null) {
+            queryParameters['textLocation'] = ObjectSerializer.serialize(
+                request.barcodeImageParams.textLocation,
+                'CodeLocation'
             );
         }
 
-        if (request.pdf417EncodeMode != null) {
-            queryParameters['pdf417EncodeMode'] = ObjectSerializer.serialize(
-                request.pdf417EncodeMode,
-                'Pdf417EncodeMode'
+        if (request.barcodeImageParams?.foregroundColor != null) {
+            queryParameters['foregroundColor'] = ObjectSerializer.serialize(
+                request.barcodeImageParams.foregroundColor,
+                'string'
             );
         }
 
-        if (request.pdf417ErrorLevel != null) {
-            queryParameters['pdf417ErrorLevel'] = ObjectSerializer.serialize(
-                request.pdf417ErrorLevel,
-                'Pdf417ErrorLevel'
+        if (request.barcodeImageParams?.backgroundColor != null) {
+            queryParameters['backgroundColor'] = ObjectSerializer.serialize(
+                request.barcodeImageParams.backgroundColor,
+                'string'
             );
         }
 
-        if (request.pdf417Truncate != null) {
-            queryParameters['pdf417Truncate'] = ObjectSerializer.serialize(request.pdf417Truncate, 'boolean');
+        if (request.barcodeImageParams?.units != null) {
+            queryParameters['units'] = ObjectSerializer.serialize(request.barcodeImageParams.units, 'GraphicsUnit');
         }
 
-        if (request.pdf417Columns != null) {
-            queryParameters['pdf417Columns'] = ObjectSerializer.serialize(request.pdf417Columns, 'number');
+        if (request.barcodeImageParams?.resolution != null) {
+            queryParameters['resolution'] = ObjectSerializer.serialize(request.barcodeImageParams.resolution, 'number');
         }
 
-        if (request.pdf417Rows != null) {
-            queryParameters['pdf417Rows'] = ObjectSerializer.serialize(request.pdf417Rows, 'number');
+        if (request.barcodeImageParams?.imageHeight != null) {
+            queryParameters['imageHeight'] = ObjectSerializer.serialize(
+                request.barcodeImageParams.imageHeight,
+                'number'
+            );
         }
 
-        if (request.pdf417AspectRatio != null) {
-            queryParameters['pdf417AspectRatio'] = ObjectSerializer.serialize(request.pdf417AspectRatio, 'number');
+        if (request.barcodeImageParams?.imageWidth != null) {
+            queryParameters['imageWidth'] = ObjectSerializer.serialize(request.barcodeImageParams.imageWidth, 'number');
         }
 
-        if (request.pdf417ECIEncoding != null) {
-            queryParameters['pdf417ECIEncoding'] = ObjectSerializer.serialize(
-                request.pdf417ECIEncoding,
+        if (request.barcodeImageParams?.rotationAngle != null) {
+            queryParameters['rotationAngle'] = ObjectSerializer.serialize(
+                request.barcodeImageParams.rotationAngle,
+                'number'
+            );
+        }
+
+        if (request.qrParams?.qrEncodeMode != null) {
+            queryParameters['qrEncodeMode'] = ObjectSerializer.serialize(request.qrParams.qrEncodeMode, 'QREncodeMode');
+        }
+
+        if (request.qrParams?.qrErrorLevel != null) {
+            queryParameters['qrErrorLevel'] = ObjectSerializer.serialize(request.qrParams.qrErrorLevel, 'QRErrorLevel');
+        }
+
+        if (request.qrParams?.qrVersion != null) {
+            queryParameters['qrVersion'] = ObjectSerializer.serialize(request.qrParams.qrVersion, 'QRVersion');
+        }
+
+        if (request.qrParams?.qrECIEncoding != null) {
+            queryParameters['qrECIEncoding'] = ObjectSerializer.serialize(
+                request.qrParams.qrECIEncoding,
                 'ECIEncodings'
             );
         }
 
-        if (request.pdf417IsReaderInitialization != null) {
-            queryParameters['pdf417IsReaderInitialization'] = ObjectSerializer.serialize(
-                request.pdf417IsReaderInitialization,
+        if (request.qrParams?.qrAspectRatio != null) {
+            queryParameters['qrAspectRatio'] = ObjectSerializer.serialize(request.qrParams.qrAspectRatio, 'number');
+        }
+
+        if (request.qrParams?.microQRVersion != null) {
+            queryParameters['microQRVersion'] = ObjectSerializer.serialize(
+                request.qrParams.microQRVersion,
+                'MicroQRVersion'
+            );
+        }
+
+        if (request.qrParams?.rectMicroQrVersion != null) {
+            queryParameters['rectMicroQrVersion'] = ObjectSerializer.serialize(
+                request.qrParams.rectMicroQrVersion,
+                'RectMicroQRVersion'
+            );
+        }
+
+        if (request.code128Params?.code128EncodeMode != null) {
+            queryParameters['code128EncodeMode'] = ObjectSerializer.serialize(
+                request.code128Params.code128EncodeMode,
+                'Code128EncodeMode'
+            );
+        }
+
+        if (request.pdf417Params?.pdf417EncodeMode != null) {
+            queryParameters['pdf417EncodeMode'] = ObjectSerializer.serialize(
+                request.pdf417Params.pdf417EncodeMode,
+                'Pdf417EncodeMode'
+            );
+        }
+
+        if (request.pdf417Params?.pdf417ErrorLevel != null) {
+            queryParameters['pdf417ErrorLevel'] = ObjectSerializer.serialize(
+                request.pdf417Params.pdf417ErrorLevel,
+                'Pdf417ErrorLevel'
+            );
+        }
+
+        if (request.pdf417Params?.pdf417Truncate != null) {
+            queryParameters['pdf417Truncate'] = ObjectSerializer.serialize(
+                request.pdf417Params.pdf417Truncate,
                 'boolean'
             );
         }
 
-        if (request.pdf417MacroCharacters != null) {
+        if (request.pdf417Params?.pdf417Columns != null) {
+            queryParameters['pdf417Columns'] = ObjectSerializer.serialize(request.pdf417Params.pdf417Columns, 'number');
+        }
+
+        if (request.pdf417Params?.pdf417Rows != null) {
+            queryParameters['pdf417Rows'] = ObjectSerializer.serialize(request.pdf417Params.pdf417Rows, 'number');
+        }
+
+        if (request.pdf417Params?.pdf417AspectRatio != null) {
+            queryParameters['pdf417AspectRatio'] = ObjectSerializer.serialize(
+                request.pdf417Params.pdf417AspectRatio,
+                'number'
+            );
+        }
+
+        if (request.pdf417Params?.pdf417ECIEncoding != null) {
+            queryParameters['pdf417ECIEncoding'] = ObjectSerializer.serialize(
+                request.pdf417Params.pdf417ECIEncoding,
+                'ECIEncodings'
+            );
+        }
+
+        if (request.pdf417Params?.pdf417IsReaderInitialization != null) {
+            queryParameters['pdf417IsReaderInitialization'] = ObjectSerializer.serialize(
+                request.pdf417Params.pdf417IsReaderInitialization,
+                'boolean'
+            );
+        }
+
+        if (request.pdf417Params?.pdf417MacroCharacters != null) {
             queryParameters['pdf417MacroCharacters'] = ObjectSerializer.serialize(
-                request.pdf417MacroCharacters,
+                request.pdf417Params.pdf417MacroCharacters,
                 'MacroCharacter'
             );
         }
 
-        if (request.pdf417IsLinked != null) {
-            queryParameters['pdf417IsLinked'] = ObjectSerializer.serialize(request.pdf417IsLinked, 'boolean');
+        if (request.pdf417Params?.pdf417IsLinked != null) {
+            queryParameters['pdf417IsLinked'] = ObjectSerializer.serialize(
+                request.pdf417Params.pdf417IsLinked,
+                'boolean'
+            );
         }
 
-        if (request.pdf417IsCode128Emulation != null) {
+        if (request.pdf417Params?.pdf417IsCode128Emulation != null) {
             queryParameters['pdf417IsCode128Emulation'] = ObjectSerializer.serialize(
-                request.pdf417IsCode128Emulation,
+                request.pdf417Params.pdf417IsCode128Emulation,
                 'boolean'
             );
         }
@@ -708,112 +741,160 @@ export class GenerateApi {
         if (request.data != null) {
             formParams.push(['data', ObjectSerializer.serialize(request.data, 'string')]);
         }
-        if (request.imageFormat != null) {
-            formParams.push(['imageFormat', ObjectSerializer.serialize(request.imageFormat, 'BarcodeImageFormat')]);
+        if (request.barcodeImageParams?.imageFormat != null) {
+            formParams.push([
+                'imageFormat',
+                ObjectSerializer.serialize(request.barcodeImageParams.imageFormat, 'BarcodeImageFormat'),
+            ]);
         }
-        if (request.textLocation != null) {
-            formParams.push(['textLocation', ObjectSerializer.serialize(request.textLocation, 'CodeLocation')]);
+        if (request.barcodeImageParams?.textLocation != null) {
+            formParams.push([
+                'textLocation',
+                ObjectSerializer.serialize(request.barcodeImageParams.textLocation, 'CodeLocation'),
+            ]);
         }
-        if (request.foregroundColor != null) {
-            formParams.push(['foregroundColor', ObjectSerializer.serialize(request.foregroundColor, 'string')]);
+        if (request.barcodeImageParams?.foregroundColor != null) {
+            formParams.push([
+                'foregroundColor',
+                ObjectSerializer.serialize(request.barcodeImageParams.foregroundColor, 'string'),
+            ]);
         }
-        if (request.backgroundColor != null) {
-            formParams.push(['backgroundColor', ObjectSerializer.serialize(request.backgroundColor, 'string')]);
+        if (request.barcodeImageParams?.backgroundColor != null) {
+            formParams.push([
+                'backgroundColor',
+                ObjectSerializer.serialize(request.barcodeImageParams.backgroundColor, 'string'),
+            ]);
         }
-        if (request.units != null) {
-            formParams.push(['units', ObjectSerializer.serialize(request.units, 'GraphicsUnit')]);
+        if (request.barcodeImageParams?.units != null) {
+            formParams.push(['units', ObjectSerializer.serialize(request.barcodeImageParams.units, 'GraphicsUnit')]);
         }
-        if (request.resolution != null) {
-            formParams.push(['resolution', ObjectSerializer.serialize(request.resolution, 'number')]);
+        if (request.barcodeImageParams?.resolution != null) {
+            formParams.push([
+                'resolution',
+                ObjectSerializer.serialize(request.barcodeImageParams.resolution, 'number'),
+            ]);
         }
-        if (request.imageHeight != null) {
-            formParams.push(['imageHeight', ObjectSerializer.serialize(request.imageHeight, 'number')]);
+        if (request.barcodeImageParams?.imageHeight != null) {
+            formParams.push([
+                'imageHeight',
+                ObjectSerializer.serialize(request.barcodeImageParams.imageHeight, 'number'),
+            ]);
         }
-        if (request.imageWidth != null) {
-            formParams.push(['imageWidth', ObjectSerializer.serialize(request.imageWidth, 'number')]);
+        if (request.barcodeImageParams?.imageWidth != null) {
+            formParams.push([
+                'imageWidth',
+                ObjectSerializer.serialize(request.barcodeImageParams.imageWidth, 'number'),
+            ]);
         }
-        if (request.rotationAngle != null) {
-            formParams.push(['rotationAngle', ObjectSerializer.serialize(request.rotationAngle, 'number')]);
+        if (request.barcodeImageParams?.rotationAngle != null) {
+            formParams.push([
+                'rotationAngle',
+                ObjectSerializer.serialize(request.barcodeImageParams.rotationAngle, 'number'),
+            ]);
         }
-        if (request.qrEncodeMode != null) {
-            formParams.push(['qrEncodeMode', ObjectSerializer.serialize(request.qrEncodeMode, 'QREncodeMode')]);
+        if (request.qrParams?.qrEncodeMode != null) {
+            formParams.push([
+                'qrEncodeMode',
+                ObjectSerializer.serialize(request.qrParams.qrEncodeMode, 'QREncodeMode'),
+            ]);
         }
-        if (request.qrErrorLevel != null) {
-            formParams.push(['qrErrorLevel', ObjectSerializer.serialize(request.qrErrorLevel, 'QRErrorLevel')]);
+        if (request.qrParams?.qrErrorLevel != null) {
+            formParams.push([
+                'qrErrorLevel',
+                ObjectSerializer.serialize(request.qrParams.qrErrorLevel, 'QRErrorLevel'),
+            ]);
         }
-        if (request.qrVersion != null) {
-            formParams.push(['qrVersion', ObjectSerializer.serialize(request.qrVersion, 'QRVersion')]);
+        if (request.qrParams?.qrVersion != null) {
+            formParams.push(['qrVersion', ObjectSerializer.serialize(request.qrParams.qrVersion, 'QRVersion')]);
         }
-        if (request.qrECIEncoding != null) {
-            formParams.push(['qrECIEncoding', ObjectSerializer.serialize(request.qrECIEncoding, 'ECIEncodings')]);
+        if (request.qrParams?.qrECIEncoding != null) {
+            formParams.push([
+                'qrECIEncoding',
+                ObjectSerializer.serialize(request.qrParams.qrECIEncoding, 'ECIEncodings'),
+            ]);
         }
-        if (request.qrAspectRatio != null) {
-            formParams.push(['qrAspectRatio', ObjectSerializer.serialize(request.qrAspectRatio, 'number')]);
+        if (request.qrParams?.qrAspectRatio != null) {
+            formParams.push(['qrAspectRatio', ObjectSerializer.serialize(request.qrParams.qrAspectRatio, 'number')]);
         }
-        if (request.microQRVersion != null) {
-            formParams.push(['microQRVersion', ObjectSerializer.serialize(request.microQRVersion, 'MicroQRVersion')]);
+        if (request.qrParams?.microQRVersion != null) {
+            formParams.push([
+                'microQRVersion',
+                ObjectSerializer.serialize(request.qrParams.microQRVersion, 'MicroQRVersion'),
+            ]);
         }
-        if (request.rectMicroQrVersion != null) {
+        if (request.qrParams?.rectMicroQrVersion != null) {
             formParams.push([
                 'rectMicroQrVersion',
-                ObjectSerializer.serialize(request.rectMicroQrVersion, 'RectMicroQRVersion'),
+                ObjectSerializer.serialize(request.qrParams.rectMicroQrVersion, 'RectMicroQRVersion'),
             ]);
         }
-        if (request.code128EncodeMode != null) {
+        if (request.code128Params?.code128EncodeMode != null) {
             formParams.push([
                 'code128EncodeMode',
-                ObjectSerializer.serialize(request.code128EncodeMode, 'Code128EncodeMode'),
+                ObjectSerializer.serialize(request.code128Params.code128EncodeMode, 'Code128EncodeMode'),
             ]);
         }
-        if (request.pdf417EncodeMode != null) {
+        if (request.pdf417Params?.pdf417EncodeMode != null) {
             formParams.push([
                 'pdf417EncodeMode',
-                ObjectSerializer.serialize(request.pdf417EncodeMode, 'Pdf417EncodeMode'),
+                ObjectSerializer.serialize(request.pdf417Params.pdf417EncodeMode, 'Pdf417EncodeMode'),
             ]);
         }
-        if (request.pdf417ErrorLevel != null) {
+        if (request.pdf417Params?.pdf417ErrorLevel != null) {
             formParams.push([
                 'pdf417ErrorLevel',
-                ObjectSerializer.serialize(request.pdf417ErrorLevel, 'Pdf417ErrorLevel'),
+                ObjectSerializer.serialize(request.pdf417Params.pdf417ErrorLevel, 'Pdf417ErrorLevel'),
             ]);
         }
-        if (request.pdf417Truncate != null) {
-            formParams.push(['pdf417Truncate', ObjectSerializer.serialize(request.pdf417Truncate, 'boolean')]);
+        if (request.pdf417Params?.pdf417Truncate != null) {
+            formParams.push([
+                'pdf417Truncate',
+                ObjectSerializer.serialize(request.pdf417Params.pdf417Truncate, 'boolean'),
+            ]);
         }
-        if (request.pdf417Columns != null) {
-            formParams.push(['pdf417Columns', ObjectSerializer.serialize(request.pdf417Columns, 'number')]);
+        if (request.pdf417Params?.pdf417Columns != null) {
+            formParams.push([
+                'pdf417Columns',
+                ObjectSerializer.serialize(request.pdf417Params.pdf417Columns, 'number'),
+            ]);
         }
-        if (request.pdf417Rows != null) {
-            formParams.push(['pdf417Rows', ObjectSerializer.serialize(request.pdf417Rows, 'number')]);
+        if (request.pdf417Params?.pdf417Rows != null) {
+            formParams.push(['pdf417Rows', ObjectSerializer.serialize(request.pdf417Params.pdf417Rows, 'number')]);
         }
-        if (request.pdf417AspectRatio != null) {
-            formParams.push(['pdf417AspectRatio', ObjectSerializer.serialize(request.pdf417AspectRatio, 'number')]);
+        if (request.pdf417Params?.pdf417AspectRatio != null) {
+            formParams.push([
+                'pdf417AspectRatio',
+                ObjectSerializer.serialize(request.pdf417Params.pdf417AspectRatio, 'number'),
+            ]);
         }
-        if (request.pdf417ECIEncoding != null) {
+        if (request.pdf417Params?.pdf417ECIEncoding != null) {
             formParams.push([
                 'pdf417ECIEncoding',
-                ObjectSerializer.serialize(request.pdf417ECIEncoding, 'ECIEncodings'),
+                ObjectSerializer.serialize(request.pdf417Params.pdf417ECIEncoding, 'ECIEncodings'),
             ]);
         }
-        if (request.pdf417IsReaderInitialization != null) {
+        if (request.pdf417Params?.pdf417IsReaderInitialization != null) {
             formParams.push([
                 'pdf417IsReaderInitialization',
-                ObjectSerializer.serialize(request.pdf417IsReaderInitialization, 'boolean'),
+                ObjectSerializer.serialize(request.pdf417Params.pdf417IsReaderInitialization, 'boolean'),
             ]);
         }
-        if (request.pdf417MacroCharacters != null) {
+        if (request.pdf417Params?.pdf417MacroCharacters != null) {
             formParams.push([
                 'pdf417MacroCharacters',
-                ObjectSerializer.serialize(request.pdf417MacroCharacters, 'MacroCharacter'),
+                ObjectSerializer.serialize(request.pdf417Params.pdf417MacroCharacters, 'MacroCharacter'),
             ]);
         }
-        if (request.pdf417IsLinked != null) {
-            formParams.push(['pdf417IsLinked', ObjectSerializer.serialize(request.pdf417IsLinked, 'boolean')]);
+        if (request.pdf417Params?.pdf417IsLinked != null) {
+            formParams.push([
+                'pdf417IsLinked',
+                ObjectSerializer.serialize(request.pdf417Params.pdf417IsLinked, 'boolean'),
+            ]);
         }
-        if (request.pdf417IsCode128Emulation != null) {
+        if (request.pdf417Params?.pdf417IsCode128Emulation != null) {
             formParams.push([
                 'pdf417IsCode128Emulation',
-                ObjectSerializer.serialize(request.pdf417IsCode128Emulation, 'boolean'),
+                ObjectSerializer.serialize(request.pdf417Params.pdf417IsCode128Emulation, 'boolean'),
             ]);
         }
         const requestOptions: ApiRequestOptions = {

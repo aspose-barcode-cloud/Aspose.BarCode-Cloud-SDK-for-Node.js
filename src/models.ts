@@ -18,6 +18,9 @@ export class ApiError {
      * Gets or sets server datetime.
      */
     'dateTime'?: Date;
+    /**
+     * Gets or sets inner error.
+     */
     'innerError'?: ApiError;
 
     static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
@@ -61,6 +64,9 @@ export class ApiErrorResponse {
      * Gets or sets request Id.
      */
     'requestId': string;
+    /**
+     * Gets or sets error.
+     */
     'error': ApiError;
 
     static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
@@ -96,7 +102,13 @@ export enum BarcodeImageFormat {
  * Optional barcode image parameters.
  */
 export class BarcodeImageParams {
+    /**
+     * Barcode output image format. Default value: png.
+     */
     'imageFormat'?: BarcodeImageFormat;
+    /**
+     * Specify the displayed text location. Set to CodeLocation.None to hide CodeText. Default value depends on BarcodeType: CodeLocation.Below for 1D barcodes and CodeLocation.None for 2D barcodes.
+     */
     'textLocation'?: CodeLocation;
     /**
      * Specify the display color for bars and content. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: Black.
@@ -106,6 +118,9 @@ export class BarcodeImageParams {
      * Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: White.
      */
     'backgroundColor'?: string;
+    /**
+     * Common units for all measurements. Default units: pixels.
+     */
     'units'?: GraphicsUnit;
     /**
      * Resolution of the barcode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is a dot.
@@ -265,6 +280,9 @@ export enum Code128EncodeMode {
  * Optional Code128 barcode generation parameters.
  */
 export class Code128Params {
+    /**
+     * Code128 barcode encode mode. Controls which Code 128 subset (A, B, C, or mix) is used.
+     */
     'code128EncodeMode'?: Code128EncodeMode;
 
     static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
@@ -498,6 +516,9 @@ export enum EncodeBarcodeType {
  * Data to encode in a barcode.
  */
 export class EncodeData {
+    /**
+     * Type of data to encode. Default value: StringData.
+     */
     'dataType'?: EncodeDataType;
     /**
      * String that represents the data to encode.
@@ -535,11 +556,29 @@ export enum EncodeDataType {
  * Barcode generation parameters.
  */
 export class GenerateParams {
+    /**
+     * Barcode type.
+     */
     'barcodeType': EncodeBarcodeType;
+    /**
+     * Data to encode into a barcode.
+     */
     'encodeData': EncodeData;
+    /**
+     * Optional barcode image parameters.
+     */
     'barcodeImageParams'?: BarcodeImageParams;
+    /**
+     * Optional QR barcode generation parameters.
+     */
     'qrParams'?: QrParams;
+    /**
+     * Optional Code128 barcode generation parameters.
+     */
     'code128Params'?: Code128Params;
+    /**
+     * Optional PDF417 barcode generation parameters.
+     */
     'pdf417Params'?: Pdf417Params;
 
     static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
@@ -639,7 +678,13 @@ export enum Pdf417ErrorLevel {
  * Optional PDF417 barcode generation parameters. Applies to Pdf417, MacroPdf417, MicroPdf417, and GS1MicroPdf417 barcode types.
  */
 export class Pdf417Params {
+    /**
+     * PDF417 barcode encode mode.
+     */
     'pdf417EncodeMode'?: Pdf417EncodeMode;
+    /**
+     * PDF417 barcode error correction level.
+     */
     'pdf417ErrorLevel'?: Pdf417ErrorLevel;
     /**
      * Whether to use truncated PDF417 format (removes right-side stop pattern).
@@ -657,11 +702,17 @@ export class Pdf417Params {
      * PDF417 barcode aspect ratio (height/width of the barcode module). Values are defined by the standard: 2 to 5 for MicroPdf417; 3 to 5 for Pdf417 and MacroPdf417.
      */
     'pdf417AspectRatio'?: number;
+    /**
+     * ECI encoding for PDF417 barcode data.
+     */
     'pdf417ECIEncoding'?: ECIEncodings;
     /**
      * Whether the barcode is used for reader initialization (programming).
      */
     'pdf417IsReaderInitialization'?: boolean;
+    /**
+     * Macro character to prepend (structured append).
+     */
     'pdf417MacroCharacters'?: MacroCharacter;
     /**
      * Whether to use linked mode (for MicroPdf417).
@@ -806,15 +857,33 @@ export enum QRVersion {
  * Optional QR barcode generation parameters. Applies to QR, GS1QR, MicroQR, and RectMicroQR barcode types.
  */
 export class QrParams {
+    /**
+     * QR barcode encode mode.
+     */
     'qrEncodeMode'?: QREncodeMode;
+    /**
+     * QR barcode error correction level.
+     */
     'qrErrorLevel'?: QRErrorLevel;
+    /**
+     * QR barcode version. Automatically selects the smallest version that fits the data.
+     */
     'qrVersion'?: QRVersion;
+    /**
+     * ECI encoding for QR barcode data.
+     */
     'qrECIEncoding'?: ECIEncodings;
     /**
      * QR barcode aspect ratio. Values: 0 to 1.
      */
     'qrAspectRatio'?: number;
+    /**
+     * MicroQR barcode version. Used when BarcodeType is MicroQR.
+     */
     'microQRVersion'?: MicroQRVersion;
+    /**
+     * RectMicroQR barcode version. Used when BarcodeType is RectMicroQR.
+     */
     'rectMicroQrVersion'?: RectMicroQRVersion;
 
     static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
@@ -890,7 +959,13 @@ export class RecognizeBase64Request {
      * Barcode image bytes encoded as base-64.
      */
     'fileBase64': string;
+    /**
+     * Barcode recognition mode.
+     */
     'recognitionMode'?: RecognitionMode;
+    /**
+     * Image kind for recognition.
+     */
     'recognitionImageKind'?: RecognitionImageKind;
 
     static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
@@ -1033,132 +1108,21 @@ Default value: StringData.
      */
     'dataType'?: EncodeDataType;
     /**
-     * Barcode output image format.
-Default value: png.
+     * Grouped parameters for BarcodeImageParams.
      */
-    'imageFormat'?: BarcodeImageFormat;
+    'barcodeImageParams'?: BarcodeImageParams;
     /**
-     * Specify the displayed text location. Set to CodeLocation.None to hide CodeText.
-Default value depends on BarcodeType: CodeLocation.Below for 1D barcodes and CodeLocation.None for 2D barcodes.
+     * Grouped parameters for QrParams.
      */
-    'textLocation'?: CodeLocation;
+    'qrParams'?: QrParams;
     /**
-     * Specify the display color for bars and content.
-Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #.
-For example: AliceBlue or #FF000000.
-Default value: Black.
+     * Grouped parameters for Code128Params.
      */
-    'foregroundColor'?: string = "'Black'";
+    'code128Params'?: Code128Params;
     /**
-     * Background color of the barcode image.
-Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #.
-For example: AliceBlue or #FF000000.
-Default value: White.
+     * Grouped parameters for Pdf417Params.
      */
-    'backgroundColor'?: string = "'White'";
-    /**
-     * Common units for all measurements. Default units: pixels.
-     */
-    'units'?: GraphicsUnit;
-    /**
-     * Resolution of the barcode image.
-One value for both dimensions.
-Default value: 96 dpi.
-Decimal separator is a dot.
-     */
-    'resolution'?: number;
-    /**
-     * Height of the barcode image in the specified units. Default units: pixels.
-Decimal separator is a dot.
-     */
-    'imageHeight'?: number;
-    /**
-     * Width of the barcode image in the specified units. Default units: pixels.
-Decimal separator is a dot.
-     */
-    'imageWidth'?: number;
-    /**
-     * Barcode image rotation angle, measured in degrees. For example, RotationAngle = 0 or RotationAngle = 360 means no rotation.
-If RotationAngle is not equal to 90, 180, 270, or 0, it may increase the difficulty for the scanner to read the image.
-Default value: 0.
-     */
-    'rotationAngle'?: number;
-    /**
-     * QR barcode encode mode.
-     */
-    'qrEncodeMode'?: QREncodeMode;
-    /**
-     * QR barcode error correction level.
-     */
-    'qrErrorLevel'?: QRErrorLevel;
-    /**
-     * QR barcode version. Automatically selects the smallest version that fits the data.
-     */
-    'qrVersion'?: QRVersion;
-    /**
-     * ECI encoding for QR barcode data.
-     */
-    'qrECIEncoding'?: ECIEncodings;
-    /**
-     * QR barcode aspect ratio. Values: 0 to 1.
-     */
-    'qrAspectRatio'?: number;
-    /**
-     * MicroQR barcode version. Used when BarcodeType is MicroQR.
-     */
-    'microQRVersion'?: MicroQRVersion;
-    /**
-     * RectMicroQR barcode version. Used when BarcodeType is RectMicroQR.
-     */
-    'rectMicroQrVersion'?: RectMicroQRVersion;
-    /**
-     * Code128 barcode encode mode. Controls which Code 128 subset (A, B, C, or mix) is used.
-     */
-    'code128EncodeMode'?: Code128EncodeMode;
-    /**
-     * PDF417 barcode encode mode.
-     */
-    'pdf417EncodeMode'?: Pdf417EncodeMode;
-    /**
-     * PDF417 barcode error correction level.
-     */
-    'pdf417ErrorLevel'?: Pdf417ErrorLevel;
-    /**
-     * Whether to use truncated PDF417 format (removes right-side stop pattern).
-     */
-    'pdf417Truncate'?: boolean;
-    /**
-     * Number of columns in the PDF417 barcode. Values between 1 and 30. 0 for auto.
-     */
-    'pdf417Columns'?: number;
-    /**
-     * Number of rows in the PDF417 barcode. Values between 3 and 90. 0 for automatic.
-     */
-    'pdf417Rows'?: number;
-    /**
-     * PDF417 barcode aspect ratio (height/width of the barcode module). Values are defined by the standard: 2 to 5 for MicroPdf417; 3 to 5 for Pdf417 and MacroPdf417.
-     */
-    'pdf417AspectRatio'?: number;
-    /**
-     * ECI encoding for PDF417 barcode data.
-     */
-    'pdf417ECIEncoding'?: ECIEncodings;
-    /**
-     * Whether the barcode is used for reader initialization (programming).
-     */
-    'pdf417IsReaderInitialization'?: boolean;
-    /**
-     * Macro character to prepend (structured append).
-     */
-    'pdf417MacroCharacters'?: MacroCharacter;
-    /**
-     * Whether to use linked mode (for MicroPdf417).
-     */
-    'pdf417IsLinked'?: boolean;
-    /**
-     * Whether to use Code128 emulation for MicroPdf417.
-     */
-    'pdf417IsCode128Emulation'?: boolean;
+    'pdf417Params'?: Pdf417Params;
 
     /**
      * @param barcodeType Type of barcode to generate.
@@ -1175,12 +1139,12 @@ Default value: 0.
  */
 export class GenerateBodyRequestWrapper {
     /**
-     *
+     * Barcode generation parameters.
      */
     'generateParams': GenerateParams;
 
     /**
-     * @param generateParams
+     * @param generateParams Barcode generation parameters.
      */
     constructor(generateParams: GenerateParams) {
         this.generateParams = generateParams;
@@ -1192,7 +1156,7 @@ export class GenerateBodyRequestWrapper {
  */
 export class GenerateMultipartRequestWrapper {
     /**
-     *
+     * See https://reference.aspose.com/barcode/net/aspose.barcode.generation/encodetypes/
      */
     'barcodeType': EncodeBarcodeType;
     /**
@@ -1200,124 +1164,28 @@ export class GenerateMultipartRequestWrapper {
      */
     'data': string;
     /**
-     *
+     * Type of data to encode. Default value: StringData.
      */
     'dataType'?: EncodeDataType;
     /**
-     *
+     * Grouped parameters for BarcodeImageParams.
      */
-    'imageFormat'?: BarcodeImageFormat;
+    'barcodeImageParams'?: BarcodeImageParams;
     /**
-     *
+     * Grouped parameters for QrParams.
      */
-    'textLocation'?: CodeLocation;
+    'qrParams'?: QrParams;
     /**
-     * Specify the display color for bars and content. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: Black.
+     * Grouped parameters for Code128Params.
      */
-    'foregroundColor'?: string = "'Black'";
+    'code128Params'?: Code128Params;
     /**
-     * Background color of the barcode image. Value: Color name from https://reference.aspose.com/drawing/net/system.drawing/color/ or ARGB value starting with #. For example: AliceBlue or #FF000000. Default value: White.
+     * Grouped parameters for Pdf417Params.
      */
-    'backgroundColor'?: string = "'White'";
-    /**
-     *
-     */
-    'units'?: GraphicsUnit;
-    /**
-     * Resolution of the barcode image. One value for both dimensions. Default value: 96 dpi. Decimal separator is a dot.
-     */
-    'resolution'?: number;
-    /**
-     * Height of the barcode image in the specified units. Default units: pixels. Decimal separator is a dot.
-     */
-    'imageHeight'?: number;
-    /**
-     * Width of the barcode image in the specified units. Default units: pixels. Decimal separator is a dot.
-     */
-    'imageWidth'?: number;
-    /**
-     * Barcode image rotation angle, measured in degrees. For example, RotationAngle = 0 or RotationAngle = 360 means no rotation. If RotationAngle is not equal to 90, 180, 270, or 0, it may increase the difficulty for the scanner to read the image. Default value: 0.
-     */
-    'rotationAngle'?: number;
-    /**
-     *
-     */
-    'qrEncodeMode'?: QREncodeMode;
-    /**
-     *
-     */
-    'qrErrorLevel'?: QRErrorLevel;
-    /**
-     *
-     */
-    'qrVersion'?: QRVersion;
-    /**
-     *
-     */
-    'qrECIEncoding'?: ECIEncodings;
-    /**
-     * QR barcode aspect ratio. Values: 0 to 1.
-     */
-    'qrAspectRatio'?: number;
-    /**
-     *
-     */
-    'microQRVersion'?: MicroQRVersion;
-    /**
-     *
-     */
-    'rectMicroQrVersion'?: RectMicroQRVersion;
-    /**
-     *
-     */
-    'code128EncodeMode'?: Code128EncodeMode;
-    /**
-     *
-     */
-    'pdf417EncodeMode'?: Pdf417EncodeMode;
-    /**
-     *
-     */
-    'pdf417ErrorLevel'?: Pdf417ErrorLevel;
-    /**
-     * Whether to use truncated PDF417 format (removes right-side stop pattern).
-     */
-    'pdf417Truncate'?: boolean;
-    /**
-     * Number of columns in the PDF417 barcode. Values between 1 and 30. 0 for auto.
-     */
-    'pdf417Columns'?: number;
-    /**
-     * Number of rows in the PDF417 barcode. Values between 3 and 90. 0 for automatic.
-     */
-    'pdf417Rows'?: number;
-    /**
-     * PDF417 barcode aspect ratio (height/width of the barcode module). Values are defined by the standard: 2 to 5 for MicroPdf417; 3 to 5 for Pdf417 and MacroPdf417.
-     */
-    'pdf417AspectRatio'?: number;
-    /**
-     *
-     */
-    'pdf417ECIEncoding'?: ECIEncodings;
-    /**
-     * Whether the barcode is used for reader initialization (programming).
-     */
-    'pdf417IsReaderInitialization'?: boolean;
-    /**
-     *
-     */
-    'pdf417MacroCharacters'?: MacroCharacter;
-    /**
-     * Whether to use linked mode (for MicroPdf417).
-     */
-    'pdf417IsLinked'?: boolean;
-    /**
-     * Whether to use Code128 emulation for MicroPdf417.
-     */
-    'pdf417IsCode128Emulation'?: boolean;
+    'pdf417Params'?: Pdf417Params;
 
     /**
-     * @param barcodeType
+     * @param barcodeType See https://reference.aspose.com/barcode/net/aspose.barcode.generation/encodetypes/
      * @param data String that represents the data to encode.
      */
     constructor(barcodeType: EncodeBarcodeType, data: string) {
@@ -1364,12 +1232,12 @@ export class RecognizeRequestWrapper {
  */
 export class RecognizeBase64RequestWrapper {
     /**
-     *
+     * Barcode recognition request.
      */
     'recognizeBase64Request': RecognizeBase64Request;
 
     /**
-     * @param recognizeBase64Request
+     * @param recognizeBase64Request Barcode recognition request.
      */
     constructor(recognizeBase64Request: RecognizeBase64Request) {
         this.recognizeBase64Request = recognizeBase64Request;
@@ -1381,7 +1249,7 @@ export class RecognizeBase64RequestWrapper {
  */
 export class RecognizeMultipartRequestWrapper {
     /**
-     *
+     * See https://reference.aspose.com/barcode/net/aspose.barcode.barcoderecognition/decodetype/
      */
     'barcodeType': DecodeBarcodeType;
     /**
@@ -1389,16 +1257,16 @@ export class RecognizeMultipartRequestWrapper {
      */
     'fileBytes': Buffer;
     /**
-     *
+     * Recognition mode.
      */
     'recognitionMode'?: RecognitionMode;
     /**
-     *
+     * Image kind for recognition.
      */
     'recognitionImageKind'?: RecognitionImageKind;
 
     /**
-     * @param barcodeType
+     * @param barcodeType See https://reference.aspose.com/barcode/net/aspose.barcode.barcoderecognition/decodetype/
      * @param fileBytes Barcode image file.
      */
     constructor(barcodeType: DecodeBarcodeType, fileBytes: Buffer) {
@@ -1431,12 +1299,12 @@ export class ScanRequestWrapper {
  */
 export class ScanBase64RequestWrapper {
     /**
-     *
+     * Scan barcode request.
      */
     'scanBase64Request': ScanBase64Request;
 
     /**
-     * @param scanBase64Request
+     * @param scanBase64Request Scan barcode request.
      */
     constructor(scanBase64Request: ScanBase64Request) {
         this.scanBase64Request = scanBase64Request;
