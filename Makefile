@@ -2,7 +2,10 @@
 all: init lint build cover
 
 .PHONY: github-ci
-github-ci: init lint test
+github-ci: init lint typecheck cover
+
+.PHONY: github-ci-snippets
+github-ci-snippets: init example snippets
 
 .PHONY: init
 init:

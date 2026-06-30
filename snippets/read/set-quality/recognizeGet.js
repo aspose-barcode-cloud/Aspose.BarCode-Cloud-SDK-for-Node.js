@@ -19,14 +19,15 @@ function makeConfiguration() {
 async function recognizeBarcode(api, fileUrl) {
     const request = new Barcode.RecognizeRequestWrapper(Barcode.DecodeBarcodeType.Qr, fileUrl);
     request.recognitionMode = Barcode.RecognitionMode.Fast;
-    request.imageKind = Barcode.RecognitionImageKind.Photo;
+    request.recognitionImageKind = Barcode.RecognitionImageKind.Photo;
     const result = await api.recognize(request);
     return result.body.barcodes;
 }
 
 const config = makeConfiguration();
 const recognizeApi = new Barcode.RecognizeApi(config);
-const fileUrl = 'https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png';
+const fileUrl =
+    'https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/main/testdata/QR_and_Code128.png';
 
 recognizeBarcode(recognizeApi, fileUrl)
     .then((barcodes) => {

@@ -28,10 +28,17 @@ async function generateBarcode(api, fileName) {
     const encodeData = new Barcode.EncodeData();
     encodeData.data = 'Aspose';
 
+    const qrParams = new Barcode.QrParams();
+    qrParams.qrEncodeMode = Barcode.QREncodeMode.Auto;
+    qrParams.qrErrorLevel = Barcode.QRErrorLevel.LevelM;
+    qrParams.qrVersion = Barcode.QRVersion.Auto;
+    qrParams.qrAspectRatio = 0.75;
+
     const generateParams = new Barcode.GenerateParams();
-    generateParams.barcodeType = Barcode.EncodeBarcodeType.Code39;
+    generateParams.barcodeType = Barcode.EncodeBarcodeType.Qr;
     generateParams.encodeData = encodeData;
     generateParams.barcodeImageParams = imageParams;
+    generateParams.qrParams = qrParams;
 
     const request = new Barcode.GenerateBodyRequestWrapper(generateParams);
 
@@ -41,7 +48,7 @@ async function generateBarcode(api, fileName) {
 }
 const genApi = new Barcode.GenerateApi(config);
 
-const fileName = path.resolve('testdata', 'Code39-red.png');
+const fileName = path.resolve('testdata', 'QR-custom.png');
 
 generateBarcode(genApi, fileName)
     .then(() => {

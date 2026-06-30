@@ -32,3 +32,20 @@ jobs:
       - run: make github-ci
         env:
           TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
+
+  snippets:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@v6
+      - name: Use latest Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: latest
+          cache: "npm"
+      - run: make github-ci-snippets
+        env:
+          TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}

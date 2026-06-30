@@ -21,9 +21,10 @@ function generateBarcode(api, fileName) {
     return new Promise(async (resolve, reject) => {
         try {
             const request = new Barcode.GenerateMultipartRequestWrapper(Barcode.EncodeBarcodeType.Code39, 'Aspose');
-            request.foregroundColor = 'Green';
-            request.backgroundColor = 'Yellow';
-            request.imageFormat = Barcode.BarcodeImageFormat.Gif;
+            request.barcodeImageParams = new Barcode.BarcodeImageParams();
+            request.barcodeImageParams.foregroundColor = 'Green';
+            request.barcodeImageParams.backgroundColor = 'Yellow';
+            request.barcodeImageParams.imageFormat = Barcode.BarcodeImageFormat.Gif;
 
             const generated = await api.generateMultipart(request);
 

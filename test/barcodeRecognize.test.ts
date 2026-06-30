@@ -11,6 +11,8 @@ describe('barcodeRecognize', () => {
     const config = LoadTestConfiguration();
     const api = new Barcode.RecognizeApi(config);
 
+    const publicTestImageUrl =
+        'https://raw.githubusercontent.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/main/testdata/QR_and_Code128.png';
     const imageBuffer = fs.readFileSync('./testdata/pdf417Sample.png');
     const base64File = fs.readFileSync('./testdata/QR_and_Code128.png').toString('base64');
 
@@ -60,11 +62,8 @@ describe('barcodeRecognize', () => {
         assert.strictEqual(barcode.barcodeValue, 'Hello world!');
     });
 
-    it('recognizeBase64 should recognize image from URL', async () => {
-        const recognizeRequest = new Barcode.RecognizeRequestWrapper(
-            Barcode.DecodeBarcodeType.Qr,
-            'https://products.aspose.app/barcode/scan/img/how-to/scan/step2.png'
-        );
+    it('recognize should recognize image from URL', async () => {
+        const recognizeRequest = new Barcode.RecognizeRequestWrapper(Barcode.DecodeBarcodeType.Qr, publicTestImageUrl);
 
         const recognized = await api.recognize(recognizeRequest);
 
@@ -73,6 +72,6 @@ describe('barcodeRecognize', () => {
 
         let barcode = recognized.body.barcodes[0];
         assert.strictEqual(barcode.type, Barcode.DecodeBarcodeType.Qr);
-        assert.strictEqual(barcode.barcodeValue, 'http://en.m.wikipedia.org');
+        assert.strictEqual(barcode.barcodeValue, 'Hello world!');
     });
 });

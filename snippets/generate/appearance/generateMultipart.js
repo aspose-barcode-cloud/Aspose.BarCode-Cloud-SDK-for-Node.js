@@ -21,8 +21,14 @@ async function generateBarcode(api, fileName) {
         Barcode.EncodeBarcodeType.Pdf417,
         'Aspose.BarCode.Cloud'
     );
-    request.textLocation = Barcode.CodeLocation.Above;
-    request.imageFormat = Barcode.BarcodeImageFormat.Svg;
+    request.barcodeImageParams = new Barcode.BarcodeImageParams();
+    request.barcodeImageParams.textLocation = Barcode.CodeLocation.Above;
+    request.barcodeImageParams.imageFormat = Barcode.BarcodeImageFormat.Svg;
+
+    request.pdf417Params = new Barcode.Pdf417Params();
+    request.pdf417Params.pdf417EncodeMode = Barcode.Pdf417EncodeMode.Auto;
+    request.pdf417Params.pdf417ErrorLevel = Barcode.Pdf417ErrorLevel.Level2;
+    request.pdf417Params.pdf417AspectRatio = 3;
 
     const generated = await api.generateMultipart(request);
 
