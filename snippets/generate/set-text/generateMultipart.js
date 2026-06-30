@@ -24,6 +24,9 @@ async function generateBarcode(api, fileName) {
     );
     formRequest.dataType = Barcode.EncodeDataType.HexBytes;
 
+    formRequest.code128Params = new Barcode.Code128Params();
+    formRequest.code128Params.code128EncodeMode = Barcode.Code128EncodeMode.Auto;
+
     const generated = await api.generateMultipart(formRequest);
 
     fs.writeFileSync(fileName, generated.body);

@@ -22,10 +22,11 @@ async function generateBarcode(api, fileName) {
         Barcode.EncodeBarcodeType.Aztec,
         'Aspose.BarCode.Cloud'
     );
-    request.imageHeight = 200;
-    request.imageWidth = 200;
-    request.resolution = 150;
-    request.units = Barcode.GraphicsUnit.Point;
+    request.barcodeImageParams = new Barcode.BarcodeImageParams();
+    request.barcodeImageParams.imageHeight = 200;
+    request.barcodeImageParams.imageWidth = 200;
+    request.barcodeImageParams.resolution = 150;
+    request.barcodeImageParams.units = Barcode.GraphicsUnit.Point;
 
     const generated = await api.generateMultipart(request);
 

@@ -22,9 +22,10 @@ async function generateBarcode(api, fileName) {
         Barcode.EncodeBarcodeType.Qr,
         'https://products.aspose.cloud/barcode/family/'
     );
-    request.foregroundColor = 'DarkBlue';
-    request.backgroundColor = 'LightGray';
-    request.imageFormat = Barcode.BarcodeImageFormat.Png;
+    request.barcodeImageParams = new Barcode.BarcodeImageParams();
+    request.barcodeImageParams.foregroundColor = 'DarkBlue';
+    request.barcodeImageParams.backgroundColor = 'LightGray';
+    request.barcodeImageParams.imageFormat = Barcode.BarcodeImageFormat.Png;
 
     const generated = await api.generate(request);
 

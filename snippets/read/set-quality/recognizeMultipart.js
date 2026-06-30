@@ -24,6 +24,8 @@ async function recognizeBarcode(api, fileName) {
         Barcode.DecodeBarcodeType.Aztec,
         imageBuffer
     );
+    RecognizeRequestWrapper.recognitionMode = Barcode.RecognitionMode.Normal;
+    RecognizeRequestWrapper.recognitionImageKind = Barcode.RecognitionImageKind.ScannedDocument;
 
     const result = await api.recognizeMultipart(RecognizeRequestWrapper);
 

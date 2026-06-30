@@ -19,10 +19,11 @@ const config = makeConfiguration();
 
 async function generateBarcode(api, fileName) {
     const request = new Barcode.GenerateRequestWrapper(Barcode.EncodeBarcodeType.Qr, 'Aspose.BarCode.Cloud');
-    request.imageHeight = 200;
-    request.imageWidth = 200;
-    request.resolution = 300;
-    request.units = Barcode.GraphicsUnit.Pixel;
+    request.barcodeImageParams = new Barcode.BarcodeImageParams();
+    request.barcodeImageParams.imageHeight = 200;
+    request.barcodeImageParams.imageWidth = 200;
+    request.barcodeImageParams.resolution = 300;
+    request.barcodeImageParams.units = Barcode.GraphicsUnit.Pixel;
 
     const generated = await api.generate(request);
     fs.writeFileSync(fileName, generated.body);
