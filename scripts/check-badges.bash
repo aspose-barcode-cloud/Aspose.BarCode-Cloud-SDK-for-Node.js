@@ -16,7 +16,7 @@ pushd "${SCRIPT_DIR}/.." >/dev/null
     fi
 done
 
-(grep -oP '[^/]+\.yml/badge.svg(?!\?branch=main)' "${readme_file}" || echo ) | while read -r badge_without_branch; do
+(grep -oP '[^/]+\.yml/badge.svg(?!\?branch=(main|v4)\b)' "${readme_file}" || echo ) | while read -r badge_without_branch; do
     if [ -z "${badge_without_branch}" ]; then continue; fi
     >&2 echo "Badge without branch \"${badge_without_branch}\""
     exit 1
