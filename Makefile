@@ -83,4 +83,4 @@ format-doc:
 
 .PHONY: after-gen
 after-gen: format insert-example format-doc
-	npm update --lockfile-version 2
+	npm install --package-lock-only --lockfile-version 2 --ignore-scripts --no-audit --no-fund
