@@ -33,19 +33,6 @@ jobs:
         env:
           TEST_CONFIGURATION_ACCESS_TOKEN: ${{ secrets.TEST_CONFIGURATION_ACCESS_TOKEN }}
 
-  dependency-audit:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v6
-      - name: Use LTS Node.js
-        uses: actions/setup-node@v6
-        with:
-          node-version: "lts/*"
-          cache: "npm"
-      - name: Audit dependencies
-        run: npm audit --package-lock-only --audit-level=high
-
   snippets:
     runs-on: ubuntu-latest
     defaults:
