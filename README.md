@@ -2,6 +2,7 @@
 
 [![License](https://img.shields.io/github/license/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js)](LICENSE)
 [![Node.js CI](https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/actions/workflows/node.js.yml/badge.svg?branch=main)](https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/actions/workflows/node.js.yml)
+[![zizmor](https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/actions/workflows/zizmor.yml/badge.svg?branch=main)](https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/actions/workflows/zizmor.yml)
 [![npm](https://img.shields.io/npm/v/aspose-barcode-cloud-node)](https://www.npmjs.com/package/aspose-barcode-cloud-node)
 
 + API version: 4.0
