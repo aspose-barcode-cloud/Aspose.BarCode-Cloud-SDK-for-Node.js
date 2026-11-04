@@ -1,0 +1,16 @@
+# zizmor configuration shared by all aspose-barcode-cloud repositories.
+# Docs: https://docs.zizmor.sh/configuration/
+rules:
+  unpinned-uses:
+    config:
+      policies:
+        # GitHub's own actions may stay on tags (team decision 1);
+        # everything else must be pinned to a commit SHA.
+        actions/*: ref-pin
+        "*": hash-pin
+  secrets-outside-env:
+    config:
+      allow:
+        # Short-lived JWT for integration tests, refreshed before each release;
+        # exposed to all CI jobs on purpose (no deployment environment).
+        - TEST_CONFIGURATION_ACCESS_TOKEN
