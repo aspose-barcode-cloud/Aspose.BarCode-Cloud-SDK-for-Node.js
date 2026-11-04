@@ -14,7 +14,7 @@ pushd ${TEST_DIR}
 mkdir -p node_modules/aspose-barcode-cloud-node
 pushd "$_"
 ln -sv -f ../../../package.json .
-ln -sv -F ../../../dist/ .
+ln -sv ../../../dist/ .
 popd
 
 # Run
