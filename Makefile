@@ -36,9 +36,13 @@ test: typecheck npm-test example snippets
 typecheck:
 	npm run typecheck
 
+# jest enforces the 80% line gate (jest.config.js); the shared scripts/coverage.py
+# prints the percentage, applies COVERAGE_THRESHOLD (default 80) and writes
+# coverage/coverage-{badge,summary}.json.
 .PHONY: cover
 cover:
 	npm run cover
+	python3 scripts/coverage.py lcov coverage/lcov.info
 
 .PHONY: lint
 lint:
