@@ -66,8 +66,8 @@ jobs:
     name: Publish coverage
     needs: build
     # Only pushes to the default branch publish, and only once the GitHub App for
-    # the test-coverage repository is configured (COVERAGE_APP_ID variable).
-    if: github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && vars.COVERAGE_APP_ID != ''
+    # the test-coverage repository is configured (COVERAGE_APP_CLIENT_ID variable).
+    if: github.event_name == 'push' && github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && vars.COVERAGE_APP_CLIENT_ID != ''
     runs-on: ubuntu-latest
 
     steps:
@@ -82,7 +82,7 @@ jobs:
         id: coverage-token
         uses: actions/create-github-app-token@v3
         with:
-          app-id: ${{ vars.COVERAGE_APP_ID }}
+          client-id: ${{ vars.COVERAGE_APP_CLIENT_ID }}
           private-key: ${{ secrets.COVERAGE_APP_PRIVATE_KEY }}
           owner: aspose-barcode-cloud
           repositories: test-coverage
