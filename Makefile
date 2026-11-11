@@ -36,9 +36,16 @@ test: typecheck npm-test example snippets
 typecheck:
 	npm run typecheck
 
+# `python`, or `python3` where only that exists (e.g. a stock Ubuntu 26.04).
+PYTHON ?= $(shell command -v python 2>/dev/null || echo python3)
+
+# jest enforces the 80% line gate (jest.config.js); the shared scripts/coverage.py
+# prints the percentage, applies COVERAGE_THRESHOLD (default 80) and writes
+# coverage/coverage-{badge,summary}.json.
 .PHONY: cover
 cover:
 	npm run cover
+	$(PYTHON) scripts/coverage.py lcov coverage/lcov.info
 
 .PHONY: lint
 lint:
