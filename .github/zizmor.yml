@@ -14,3 +14,7 @@ rules:
         # Short-lived JWT for integration tests, refreshed before each release;
         # exposed to all CI jobs on purpose (no deployment environment).
         - TEST_CONFIGURATION_ACCESS_TOKEN
+        # Private key of the GitHub App that publishes coverage. The app can
+        # only write to the test-coverage repository, and the publish job runs
+        # only on pushes to the default branch (no deployment environment).
+        - COVERAGE_APP_PRIVATE_KEY
