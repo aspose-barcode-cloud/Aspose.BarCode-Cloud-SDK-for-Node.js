@@ -77,7 +77,6 @@ example:
 
 .PHONY: snippets
 snippets:
-	chmod +x scripts/*
 	./scripts/run_snippets.sh
 
 .PHONY: insert-example
