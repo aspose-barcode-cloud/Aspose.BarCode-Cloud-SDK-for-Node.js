@@ -10,6 +10,8 @@ permissions: {}
 jobs:
   publish:
     name: Publish to npm
+    # Waits for a required reviewer; only v* tags may deploy to "release".
+    environment: release
     permissions:
       id-token: write # OIDC trusted publishing to npm
       contents: read
