@@ -164,6 +164,56 @@ interface BarcodeResponseList {
 }
 ```
 
+## BatchArchiveFormat
+
+Archive format for batch barcode generation.
+
+```ts
+enum BatchArchiveFormat {
+    Zip = 'Zip',
+    Tar = 'Tar',
+    TarGzip = 'TarGzip'
+}
+```
+
+## BatchGenerateItem
+
+One barcode to generate in a batch.
+
+```ts
+interface BatchGenerateItem {
+
+    /**
+     * Optional file name inside the archive. When omitted or blank, a sequential name is generated. Supplied safe names are preserved; the image format is independent of the file extension.
+     */
+    fileName?: string;
+
+    /**
+     * Barcode generation parameters.
+     */
+    generation: GenerateParams;
+}
+```
+
+## BatchGenerateRequest
+
+Batch barcode generation request.
+
+```ts
+interface BatchGenerateRequest {
+
+    /**
+     * Format of the returned archive. Default value: Zip.
+     */
+    archiveFormat?: BatchArchiveFormat;
+
+    /**
+     * Barcodes to generate. A batch must contain between one and three items.
+     */
+    items: Array<BatchGenerateItem>;
+}
+```
+
 ## Code128EncodeMode
 
 Code128 barcode encode mode. Mirrors https://reference.aspose.com/barcode/net/aspose.barcode.generation/code128encodemode/
@@ -292,7 +342,8 @@ enum DecodeBarcodeType {
     SwissPostParcel = 'SwissPostParcel',
     Upca = 'UPCA',
     Upce = 'UPCE',
-    Vin = 'VIN'
+    Vin = 'VIN',
+    JapanPost = 'JapanPost'
 }
 ```
 
@@ -417,7 +468,8 @@ enum EncodeBarcodeType {
     Upce = 'UPCE',
     UpcaGs1Code128Coupon = 'UpcaGs1Code128Coupon',
     UpcaGs1DatabarCoupon = 'UpcaGs1DatabarCoupon',
-    Vin = 'VIN'
+    Vin = 'VIN',
+    JapanPost = 'JapanPost'
 }
 ```
 

@@ -52,6 +52,26 @@ Buffer
 
 ---
 
+### generateBatch
+
+Generate multiple barcodes and return them in a ZIP, TAR, or TAR.GZ archive.
+
+```ts
+generateBatch(batchGenerateRequest: BatchGenerateRequest): Buffer;
+```
+
+#### GenerateApi.generateBatch parameters
+
+Name | Type | Description  | Notes
+---- | ---- | ------------ | -----
+ **batchGenerateRequest** | [**BatchGenerateRequest**](models.md#BatchGenerateRequest)| Batch generation request in JSON or XML format. |
+
+#### GenerateApi.generateBatch return type
+
+Buffer
+
+---
+
 ### generateBody
 
 Generate a barcode using a POST request with parameters in the request body in JSON or XML format.
