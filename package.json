@@ -187,7 +187,15 @@
     "tsup": "^8.5.1"
   },
   "overrides": {
-    "minimatch@>=7.0.0 <11.0.1": "^11.0.1"
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.1"
+    },
+    "glob": {
+      "minimatch": "^11.0.1"
+    },
+    "test-exclude": {
+      "minimatch": "^11.0.1"
+    }
   },
   "bugs": {
     "url": "https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/issues"
