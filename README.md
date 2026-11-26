@@ -21,9 +21,6 @@ for the returned binary archive. Each item contains generation parameters and an
 file name; the image format is independent of the file extension.
 
 [Save a batch as a ZIP archive](snippets/generate/batch/generate_batch.js).
-The example reads `TEST_CONFIGURATION_ACCESS_TOKEN` from the environment.
-
-The barcode-type enums also include `JapanPost` for generation and recognition.
 
 ## Demo applications
 
