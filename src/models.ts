@@ -264,6 +264,77 @@ export class BarcodeResponseList {
 }
 
 /**
+ * Archive format for batch barcode generation.
+ */
+export enum BatchArchiveFormat {
+    Zip = 'Zip',
+    Tar = 'Tar',
+    TarGzip = 'TarGzip',
+}
+
+/**
+ * One barcode to generate in a batch.
+ */
+export class BatchGenerateItem {
+    /**
+     * Optional file name inside the archive. When omitted or blank, a sequential name is generated. Supplied safe names are preserved; the image format is independent of the file extension.
+     */
+    'fileName'?: string;
+    /**
+     * Barcode generation parameters.
+     */
+    'generation': GenerateParams;
+
+    static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
+        {
+            name: 'fileName',
+            baseName: 'fileName',
+            type: 'string',
+        },
+        {
+            name: 'generation',
+            baseName: 'generation',
+            type: 'GenerateParams',
+        },
+    ];
+
+    static getAttributeTypeMap() {
+        return BatchGenerateItem.attributeTypeMap;
+    }
+}
+
+/**
+ * Batch barcode generation request.
+ */
+export class BatchGenerateRequest {
+    /**
+     * Format of the returned archive. Default value: Zip.
+     */
+    'archiveFormat'?: BatchArchiveFormat;
+    /**
+     * Barcodes to generate. A batch must contain between one and three items.
+     */
+    'items': Array<BatchGenerateItem>;
+
+    static attributeTypeMap: Array<{ name: string; baseName: string; type: string }> = [
+        {
+            name: 'archiveFormat',
+            baseName: 'archiveFormat',
+            type: 'BatchArchiveFormat',
+        },
+        {
+            name: 'items',
+            baseName: 'items',
+            type: 'Array<BatchGenerateItem>',
+        },
+    ];
+
+    static getAttributeTypeMap() {
+        return BatchGenerateRequest.attributeTypeMap;
+    }
+}
+
+/**
  * Code128 barcode encode mode. Mirrors https://reference.aspose.com/barcode/net/aspose.barcode.generation/code128encodemode/
  */
 export enum Code128EncodeMode {
@@ -391,6 +462,7 @@ export enum DecodeBarcodeType {
     Upca = 'UPCA',
     Upce = 'UPCE',
     Vin = 'VIN',
+    JapanPost = 'JapanPost',
 }
 
 /**
@@ -510,6 +582,7 @@ export enum EncodeBarcodeType {
     UpcaGs1Code128Coupon = 'UpcaGs1Code128Coupon',
     UpcaGs1DatabarCoupon = 'UpcaGs1DatabarCoupon',
     Vin = 'VIN',
+    JapanPost = 'JapanPost',
 }
 
 /**
@@ -1131,6 +1204,23 @@ Default value: StringData.
     constructor(barcodeType: EncodeBarcodeType, data: string) {
         this.barcodeType = barcodeType;
         this.data = data;
+    }
+}
+
+/**
+ * Generate multiple barcodes and return them in a ZIP, TAR, or TAR.GZ archive.
+ */
+export class GenerateBatchRequestWrapper {
+    /**
+     * Batch barcode generation request.
+     */
+    'batchGenerateRequest': BatchGenerateRequest;
+
+    /**
+     * @param batchGenerateRequest Batch barcode generation request.
+     */
+    constructor(batchGenerateRequest: BatchGenerateRequest) {
+        this.batchGenerateRequest = batchGenerateRequest;
     }
 }
 

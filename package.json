@@ -1,6 +1,6 @@
 {
   "name": "aspose-barcode-cloud-node",
-  "version": "26.10.0",
+  "version": "26.11.0",
   "description": "Aspose.BarCode Cloud SDK for Node.js",
   "homepage": "https://products.aspose.cloud/barcode/nodejs",
   "repository": {
@@ -179,12 +179,23 @@
     "@typescript-eslint/parser": "^8.40.0",
     "eslint": "^9.33.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.6",
+    "eslint-plugin-prettier": "^5.5.7",
     "npm-check-updates": "^18.3.1",
-    "prettier": "^3.9.10",
-    "ts-jest": "^29.4.12",
-    "tslib": "^2.8.1",
+    "prettier": "^3.10.1",
+    "ts-jest": "^29.4.15",
+    "tslib": "^2.9.1",
     "tsup": "^8.5.1"
+  },
+  "overrides": {
+    "@typescript-eslint/typescript-estree": {
+      "minimatch": "^11.0.1"
+    },
+    "glob": {
+      "minimatch": "^11.0.1"
+    },
+    "test-exclude": {
+      "minimatch": "^11.0.1"
+    }
   },
   "bugs": {
     "url": "https://github.com/aspose-barcode-cloud/Aspose.BarCode-Cloud-SDK-for-Node.js/issues"

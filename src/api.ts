@@ -10,6 +10,9 @@ import {
     BarcodeImageParams,
     BarcodeResponse,
     BarcodeResponseList,
+    BatchArchiveFormat,
+    BatchGenerateItem,
+    BatchGenerateRequest,
     Code128EncodeMode,
     Code128Params,
     CodeLocation,
@@ -39,6 +42,7 @@ import {
 
 import {
     GenerateRequestWrapper,
+    GenerateBatchRequestWrapper,
     GenerateBodyRequestWrapper,
     GenerateMultipartRequestWrapper,
     RecognizeRequestWrapper,
@@ -408,6 +412,7 @@ class ObjectSerializer {
 
 let enumsMap: { [index: string]: any } = {
     BarcodeImageFormat: BarcodeImageFormat,
+    BatchArchiveFormat: BatchArchiveFormat,
     Code128EncodeMode: Code128EncodeMode,
     CodeLocation: CodeLocation,
     DecodeBarcodeType: DecodeBarcodeType,
@@ -433,6 +438,8 @@ let typeMap: { [index: string]: any } = {
     BarcodeImageParams: BarcodeImageParams,
     BarcodeResponse: BarcodeResponse,
     BarcodeResponseList: BarcodeResponseList,
+    BatchGenerateItem: BatchGenerateItem,
+    BatchGenerateRequest: BatchGenerateRequest,
     Code128Params: Code128Params,
     EncodeData: EncodeData,
     GenerateParams: GenerateParams,
@@ -446,7 +453,7 @@ let typeMap: { [index: string]: any } = {
 export class GenerateApi {
     protected defaultHeaders: any = {
         'x-aspose-client': 'nodejs sdk',
-        'x-aspose-client-version': '26.10.0',
+        'x-aspose-client-version': '26.11.0',
     };
     protected _configuration: Configuration;
     private _client: ApiClient;
@@ -659,6 +666,42 @@ export class GenerateApi {
             qs: queryParameters,
             headers: headerParams,
             uri: requestPath,
+            encoding: null,
+        };
+
+        await this._configuration.authentication.applyToRequestAsync(requestOptions);
+
+        const result: ApiResult = await this._client.requestAsync(requestOptions);
+
+        return {
+            response: result.response,
+            body: ObjectSerializer.deserialize(result.body, 'Buffer'),
+        };
+    }
+
+    /**
+     * Generate multiple barcodes and return them in a ZIP, TAR, or TAR.GZ archive.
+     * @param request GenerateBatchRequestWrapper
+     */
+    public async generateBatch(request: GenerateBatchRequestWrapper): Promise<{ response: ApiResponse; body: Buffer }> {
+        const requestPath = this._configuration.getApiBaseUrl() + '/barcode/generate-batch';
+        let queryParameters: any = {};
+        let headerParams: any = (Object as any).assign({}, this.defaultHeaders);
+
+        // verify required parameter 'request.batchGenerateRequest' is not null or undefined
+        if (request.batchGenerateRequest == null) {
+            throw new Error(
+                'Required parameter request.batchGenerateRequest was null or undefined when calling generateBatch.'
+            );
+        }
+
+        const requestOptions: ApiRequestOptions = {
+            method: 'POST',
+            qs: queryParameters,
+            headers: headerParams,
+            uri: requestPath,
+            body: ObjectSerializer.serialize(request.batchGenerateRequest, 'BatchGenerateRequest'),
+            json: true,
             encoding: null,
         };
 
@@ -925,7 +968,7 @@ export class GenerateApi {
 export class RecognizeApi {
     protected defaultHeaders: any = {
         'x-aspose-client': 'nodejs sdk',
-        'x-aspose-client-version': '26.10.0',
+        'x-aspose-client-version': '26.11.0',
     };
     protected _configuration: Configuration;
     private _client: ApiClient;
@@ -1097,7 +1140,7 @@ export class RecognizeApi {
 export class ScanApi {
     protected defaultHeaders: any = {
         'x-aspose-client': 'nodejs sdk',
-        'x-aspose-client-version': '26.10.0',
+        'x-aspose-client-version': '26.11.0',
     };
     protected _configuration: Configuration;
     private _client: ApiClient;
